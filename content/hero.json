@@ -1,12 +1,12 @@
 {
-  "eyebrow": "Home of the Eastfield Eagles · Est. 1980",
-  "headline_line_1": "Are You",
-  "headline_line_2_pre": "Ready",
-  "headline_line_2_accent": "to",
-  "headline_line_3": "Ride?",
-  "blurb": "Forty-plus years of racing, coaching and community at **The Eagles Nest** in Kilsyth. From mini-wheelers to world champs — we've been launching riders out of the gate since 1980. **Your first 4 weeks are free.**",
-  "primary_cta_label": "Start Riding",
   "primary_cta_url": "#join",
+  "primary_cta_label": "Start Riding",
+  "eyebrow": "Home of the Eastfield Eagles · Est. 1980",
+  "headline_line_1": "Are You Ready",
+  "headline_line_3": "Ride?",
+  "secondary_cta_url": "#whats-on",
+  "headline_line_2_pre": " ",
+  "headline_line_2_accent": "to",
   "secondary_cta_label": "See What's On",
-  "secondary_cta_url": "#whats-on"
+  "blurb": "Forty-plus years of racing, coaching and community at **The Eagles Nest** in Kilsyth. From mini-wheelers to world champs — we've been launching riders out of the gate since 1980. **Your first 4 weeks are free.**"
 }
