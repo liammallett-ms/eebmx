@@ -3,13 +3,45 @@
   "heading_main": "Pictures from",
   "heading_accent": "the track",
   "items": [
-    { "image": "", "label": "Action Shot", "size": "tall" },
-    { "image": "", "label": "Pro Gate", "size": "normal" },
-    { "image": "", "label": "Mini Wheelers", "size": "normal" },
-    { "image": "", "label": "Track Wide Shot", "size": "wide" },
-    { "image": "", "label": "Race Day", "size": "normal" },
-    { "image": "", "label": "Podium", "size": "normal" },
-    { "image": "", "label": "Club Community", "size": "wide" },
-    { "image": "", "label": "Coaching", "size": "normal" }
+    {
+      "image": "/uploads/img_5930.jpg",
+      "label": "Pro Gate",
+      "size": "wide"
+    },
+    {
+      "image": "/uploads/img_6076.jpg",
+      "label": "Berm RIding",
+      "size": "wide"
+    },
+    {
+      "image": "/uploads/img_6279.jpg",
+      "label": "Mini Wheelers",
+      "size": "normal"
+    },
+    {
+      "image": "/uploads/dji_fly_20260329_092216_280_1774736542548_photo_optimized.jpg",
+      "label": "Track Wide Shot",
+      "size": "wide"
+    },
+    {
+      "image": "/uploads/img_5972.jpg",
+      "label": "Race Day",
+      "size": "normal"
+    },
+    {
+      "image": "",
+      "label": "Podium",
+      "size": "normal"
+    },
+    {
+      "image": "/uploads/20260329_113543.jpg",
+      "label": "Club Community",
+      "size": "wide"
+    },
+    {
+      "image": "",
+      "label": "Coaching",
+      "size": "normal"
+    }
   ]
 }
