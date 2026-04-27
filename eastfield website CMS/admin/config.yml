@@ -3,8 +3,10 @@
 
 backend:
   name: github
-  repo: liammallett-ms/eebmx    # ← change this after creating your GitHub repo
+  repo: liammallett-ms/eebmx
   branch: main
+  base_url: https://decap-auth.adverts89.workers.dev
+  auth_endpoint: /auth
 
 # Uploaded media (logos, photos, intro video) — saved into /uploads/
 media_folder: "uploads"
