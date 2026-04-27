@@ -136,7 +136,20 @@ collections:
                   - { label: "Normal (1×1)", value: "normal" }
                   - { label: "Tall (1×2)", value: "tall" }
                   - { label: "Wide (2×1)", value: "wide" }
-
+# ---- 6.5 Instagram ----
+      - name: "instagram"
+        label: "📸 Instagram Carousel"
+        file: "content/instagram.json"
+        fields:
+          - { label: "Show this section on the website?", name: "enabled", widget: "boolean", default: true }
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Heading (main part)", name: "heading_main", widget: "string" }
+          - { label: "Heading (purple part)", name: "heading_accent", widget: "string" }
+          - { label: "Instagram handle (display)", name: "handle", widget: "string", hint: "e.g. @eastfieldbmxclub" }
+          - { label: "Lightwidget embed URL", name: "embed_url", widget: "string", hint: "Just the URL — e.g. https://lightwidget.com/widgets/abc123.html. Get this from your Lightwidget dashboard." }
+          - { label: "Instagram profile URL", name: "follow_url", widget: "string", hint: "Full URL to your Instagram page" }
+          - { label: "Follow button label", name: "follow_label", widget: "string" }
+          
       # ---- 7. Join CTA ----
       - name: "join"
         label: "🎯 Join CTA — purple banner near bottom"
