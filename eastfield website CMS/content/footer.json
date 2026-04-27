@@ -1,0 +1,16 @@
+{
+  "tagline": "Maroondah BMX Club · The Eagles Nest · Home of competitive racing and family BMX in Melbourne's east since 1980.",
+  "address_line_1": "195 Colchester Road",
+  "address_line_2": "Kilsyth VIC 3137",
+  "directions_url": "https://maps.google.com/?q=195+Colchester+Road+Kilsyth+VIC+3137",
+  "email": "eastfieldeagles@gmail.com",
+  "phone": "+61404077491",
+  "phone_display": "+61 404 077 491",
+  "social": [
+    { "label": "Facebook", "url": "https://www.facebook.com/MaroondahBMXclubEastfield/" },
+    { "label": "Instagram", "url": "https://www.instagram.com/eastfieldbmxclub" },
+    { "label": "EntryBoss", "url": "https://entryboss.cc/calendar/maroondahbmx" }
+  ],
+  "copyright": "© 2026 Maroondah BMX Club",
+  "hashtags": "#EastfieldEagles · #EaglesNest"
+}

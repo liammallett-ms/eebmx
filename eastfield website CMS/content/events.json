@@ -1,0 +1,31 @@
+{
+  "eyebrow": "Weekly",
+  "heading_main": "What's",
+  "heading_accent": "on this week",
+  "items": [
+    {
+      "day": "Tuesday Nights",
+      "title": "Gate Night",
+      "time": "6:00pm – 7:30pm",
+      "description": "Open practice on the Pro Gate. All AUS Cycling members welcome — any club, any track. Canteen open.",
+      "cost_amount": "$3",
+      "cost_unit": "per rider"
+    },
+    {
+      "day": "Tuesday Coaching",
+      "title": "Coaching with Connor",
+      "time": "4:00pm Mini · 4:30 Beginner · 5:15 Intermediate",
+      "description": "Structured coaching across three skill streams. Mini-wheelers, beginners and intermediates ride before the gates open.",
+      "cost_amount": "$5–$20",
+      "cost_unit": "per session"
+    },
+    {
+      "day": "Wednesdays",
+      "title": "All-Abilities",
+      "time": "Coaching with Harry",
+      "description": "Inclusive coaching for riders of all abilities. Welcoming, supportive and 100% focused on having fun on the bike.",
+      "cost_amount": "Members",
+      "cost_unit": "only"
+    }
+  ]
+}

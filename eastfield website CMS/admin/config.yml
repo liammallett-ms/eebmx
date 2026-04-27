@@ -1,0 +1,172 @@
+# Decap CMS configuration for Maroondah BMX Club / Eastfield Eagles
+# Each section of the website is a separate file the editor can update independently.
+
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME    # ← change this after creating your GitHub repo
+  branch: main
+
+# Uploaded media (logos, photos, intro video) — saved into /uploads/
+media_folder: "uploads"
+public_folder: "/uploads"
+
+# Show the live site link in the CMS top-right
+site_url: https://YOUR-SITE-DOMAIN.com           # ← change to your real domain
+display_url: https://YOUR-SITE-DOMAIN.com        # ← change to your real domain
+
+collections:
+  - name: "site_content"
+    label: "🦅 Eagles Website"
+    description: "Edit each section of the website here. Save to publish — changes go live within ~1 minute."
+    delete: false
+    editor:
+      preview: false
+
+    files:
+      # ---- 1. Site basics ----
+      - name: "site"
+        label: "🏠 Site Basics — logo, intro video, page title"
+        file: "content/site.json"
+        fields:
+          - { label: "Page Title (browser tab)", name: "title", widget: "string", hint: "Shown in the browser tab and in Google search results." }
+          - { label: "Page Description", name: "description", widget: "text", hint: "1-2 sentences describing the club. Shown in Google search results and when sharing the link." }
+          - { label: "Club Logo", name: "logo", widget: "image", required: true, hint: "PNG with transparent background works best. Replaces the logo in the top-left of the site." }
+          - { label: "Intro Video (MP4)", name: "intro_video", widget: "file", required: false, hint: "Plays full-screen when someone first visits the site. Leave empty to skip the intro." }
+
+      # ---- 2. Hero ----
+      - name: "hero"
+        label: "🚀 Hero — top of homepage"
+        file: "content/hero.json"
+        fields:
+          - { label: "Eyebrow text (small text above headline)", name: "eyebrow", widget: "string" }
+          - { label: "Headline — Line 1", name: "headline_line_1", widget: "string", hint: "Example: 'Are You'" }
+          - { label: "Headline — Line 2 main text", name: "headline_line_2_pre", widget: "string", hint: "Example: 'Ready'" }
+          - { label: "Headline — Line 2 accent word (green italic)", name: "headline_line_2_accent", widget: "string", hint: "The little italic word in green. Example: 'to'" }
+          - { label: "Headline — Line 3 (purple outline text)", name: "headline_line_3", widget: "string", hint: "Example: 'Ride?'" }
+          - { label: "Blurb (paragraph below headline)", name: "blurb", widget: "text", hint: "Wrap text in **double asterisks** to make it bold. Example: '**4 weeks free**'" }
+          - { label: "Primary Button — Label", name: "primary_cta_label", widget: "string" }
+          - { label: "Primary Button — Link", name: "primary_cta_url", widget: "string", hint: "Use a # link to scroll to a section (e.g. #join), or a full URL." }
+          - { label: "Secondary Button — Label", name: "secondary_cta_label", widget: "string" }
+          - { label: "Secondary Button — Link", name: "secondary_cta_url", widget: "string" }
+
+      # ---- 3. Ticker ----
+      - name: "ticker"
+        label: "📜 Scrolling Ticker"
+        file: "content/ticker.json"
+        fields:
+          - label: "Ticker Items"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.text}}"
+            hint: "Short slogans that scroll across the page below the hero. 4-8 items works best."
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+
+      # ---- 4. About ----
+      - name: "about"
+        label: "ℹ️ About Section"
+        file: "content/about.json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Heading (main part)", name: "heading_main", widget: "string", hint: "Example: 'A family club'" }
+          - { label: "Heading (purple part)", name: "heading_accent", widget: "string", hint: "Example: 'that punches above its weight.'" }
+          - { label: "Photo", name: "image", widget: "image", required: false, hint: "A wide track shot or great race-day photo. Leave empty to show the placeholder." }
+          - { label: "Photo Caption (placeholder text when no photo)", name: "image_label", widget: "string", required: false }
+          - label: "Paragraphs"
+            name: "paragraphs"
+            widget: "list"
+            summary: "{{fields.text}}"
+            hint: "Each item is one paragraph. Wrap text in **double asterisks** to bold it."
+            fields:
+              - { label: "Paragraph", name: "text", widget: "text" }
+          - label: "Stats (4 small boxes)"
+            name: "stats"
+            widget: "list"
+            summary: "{{fields.number}} — {{fields.label}}"
+            min: 4
+            max: 4
+            fields:
+              - { label: "Big Number", name: "number", widget: "string", hint: "Examples: 45, 2+, $3, 4wk" }
+              - { label: "Caption", name: "label", widget: "string" }
+
+      # ---- 5. Events ----
+      - name: "events"
+        label: "📅 What's On — Events"
+        file: "content/events.json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Heading (main part)", name: "heading_main", widget: "string" }
+          - { label: "Heading (purple part)", name: "heading_accent", widget: "string" }
+          - label: "Event Cards"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.day}} — {{fields.title}}"
+            hint: "Add, remove, or reorder weekly events. 3 cards looks best, but you can have more."
+            fields:
+              - { label: "Day / Schedule (small green text)", name: "day", widget: "string", hint: "Example: 'Tuesday Nights'" }
+              - { label: "Event Title", name: "title", widget: "string" }
+              - { label: "Time", name: "time", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Cost — Amount", name: "cost_amount", widget: "string", hint: "Example: '$3' or 'Members'" }
+              - { label: "Cost — Unit", name: "cost_unit", widget: "string", hint: "Example: 'per rider' or 'only'" }
+
+      # ---- 6. Gallery ----
+      - name: "gallery"
+        label: "🖼️ Photo Gallery"
+        file: "content/gallery.json"
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Heading (main part)", name: "heading_main", widget: "string" }
+          - { label: "Heading (purple part)", name: "heading_accent", widget: "string" }
+          - label: "Photos"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.label}}"
+            hint: "Drag to reorder. Mix sizes — 'tall' and 'wide' make the layout interesting. 8 photos works best."
+            fields:
+              - { label: "Photo", name: "image", widget: "image", required: false }
+              - { label: "Caption / placeholder text", name: "label", widget: "string" }
+              - label: "Size in grid"
+                name: "size"
+                widget: "select"
+                default: "normal"
+                options:
+                  - { label: "Normal (1×1)", value: "normal" }
+                  - { label: "Tall (1×2)", value: "tall" }
+                  - { label: "Wide (2×1)", value: "wide" }
+
+      # ---- 7. Join CTA ----
+      - name: "join"
+        label: "🎯 Join CTA — purple banner near bottom"
+        file: "content/join.json"
+        fields:
+          - { label: "Top Tag (e.g. 'First 4 Weeks Free')", name: "tag", widget: "string" }
+          - { label: "Heading (main part)", name: "heading_main", widget: "string" }
+          - { label: "Heading (green part)", name: "heading_accent", widget: "string" }
+          - { label: "Blurb", name: "blurb", widget: "text" }
+          - { label: "Primary Button — Label", name: "primary_cta_label", widget: "string" }
+          - { label: "Primary Button — Link", name: "primary_cta_url", widget: "string" }
+          - { label: "Secondary Button — Label", name: "secondary_cta_label", widget: "string" }
+          - { label: "Secondary Button — Link", name: "secondary_cta_url", widget: "string" }
+
+      # ---- 8. Footer ----
+      - name: "footer"
+        label: "🦅 Footer — bottom of page"
+        file: "content/footer.json"
+        fields:
+          - { label: "Tagline", name: "tagline", widget: "text" }
+          - { label: "Address — Line 1", name: "address_line_1", widget: "string" }
+          - { label: "Address — Line 2", name: "address_line_2", widget: "string" }
+          - { label: "Google Maps URL", name: "directions_url", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone (used for tap-to-call link)", name: "phone", widget: "string", hint: "No spaces. E.g. +61404077491" }
+          - { label: "Phone (display version)", name: "phone_display", widget: "string", required: false, hint: "How the number appears on screen. E.g. +61 404 077 491" }
+          - label: "Social Links"
+            name: "social"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - { label: "Copyright Line", name: "copyright", widget: "string" }
+          - { label: "Hashtags Line", name: "hashtags", widget: "string" }

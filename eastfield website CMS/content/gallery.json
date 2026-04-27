@@ -1,0 +1,15 @@
+{
+  "eyebrow": "The Eagles Nest",
+  "heading_main": "Pictures from",
+  "heading_accent": "the track",
+  "items": [
+    { "image": "", "label": "Action Shot", "size": "tall" },
+    { "image": "", "label": "Pro Gate", "size": "normal" },
+    { "image": "", "label": "Mini Wheelers", "size": "normal" },
+    { "image": "", "label": "Track Wide Shot", "size": "wide" },
+    { "image": "", "label": "Race Day", "size": "normal" },
+    { "image": "", "label": "Podium", "size": "normal" },
+    { "image": "", "label": "Club Community", "size": "wide" },
+    { "image": "", "label": "Coaching", "size": "normal" }
+  ]
+}
