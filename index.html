@@ -577,7 +577,106 @@
     border: none;
     border-radius: 0;
   }
+/* Instagram carousel */
+  .insta {
+    overflow: hidden;
+  }
+  .insta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .insta-handle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--green);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .insta-handle:hover { color: var(--white); }
+  .insta-handle::after {
+    content: '→';
+    transition: transform 0.2s;
+  }
+  .insta-handle:hover::after { transform: translateX(4px); }
 
+  .insta-scroller {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--purple-bright) var(--black-2);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: var(--black-2);
+    padding: 16px;
+    position: relative;
+  }
+  .insta-scroller::-webkit-scrollbar { height: 8px; }
+  .insta-scroller::-webkit-scrollbar-track {
+    background: var(--black-3);
+    border-radius: 4px;
+  }
+  .insta-scroller::-webkit-scrollbar-thumb {
+    background: var(--purple);
+    border-radius: 4px;
+  }
+  .insta-scroller::-webkit-scrollbar-thumb:hover {
+    background: var(--purple-bright);
+  }
+
+  /* Lightwidget iframe — set wide enough to show 12 photos at ~250px each */
+  .insta-scroller iframe {
+    width: 3120px !important;   /* 12 cols × 250px + padding */
+    min-width: 3120px;
+    height: 280px;
+    display: block;
+    border: 0;
+    background: transparent;
+  }
+
+  /* Edge fades to hint scroll */
+  .insta-scroller-wrap {
+    position: relative;
+  }
+  .insta-scroller-wrap::before,
+  .insta-scroller-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .insta-scroller-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, var(--black), transparent);
+  }
+  .insta-scroller-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, var(--black), transparent);
+  }
+
+  .insta-follow {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .insta-scroller iframe {
+      height: 220px;
+      width: 2400px !important;
+      min-width: 2400px;
+    }
+  }
   /* Join CTA */
   .join-cta {
     background:
@@ -816,7 +915,29 @@
     </div>
     <div class="gallery-grid" id="galleryGrid" style="margin-top: 60px;"></div>
   </section>
+</section>
 
+  <!-- Instagram -->
+  <section class="section-pad insta" id="instagram" style="display:none;">
+    <div class="reveal">
+      <div class="insta-header">
+        <div>
+          <div class="section-eyebrow" id="instaEyebrow"></div>
+          <h2 class="section-heading" id="instaHeading"></h2>
+        </div>
+        <a id="instaHandle" class="insta-handle" href="" target="_blank" rel="noopener"></a>
+      </div>
+      <div class="insta-scroller-wrap">
+        <div class="insta-scroller" id="instaScroller"></div>
+      </div>
+      <div class="insta-follow">
+        <a id="instaFollow" class="btn btn-primary" href="" target="_blank" rel="noopener"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join -->
+  <section class="section-pad" id="join">
   <!-- Join -->
   <section class="section-pad" id="join">
     <div class="join-cta reveal">
@@ -955,7 +1076,32 @@
       <a href="${esc(c.join.primary_cta_url)}" class="btn btn-primary">${esc(c.join.primary_cta_label)} <span class="arrow">→</span></a>
       <a href="${esc(c.join.secondary_cta_url)}" class="btn btn-secondary">${esc(c.join.secondary_cta_label)}</a>
     `;
-
+// Instagram carousel
+    if (c.instagram && c.instagram.enabled && c.instagram.embed_url) {
+      const sec = document.getElementById('instagram');
+      sec.style.display = '';
+      $('instaEyebrow').textContent = c.instagram.eyebrow || '';
+      $('instaHeading').innerHTML = `${esc(c.instagram.heading_main)} <span class="accent">${esc(c.instagram.heading_accent)}</span>`;
+      $('instaHandle').textContent = c.instagram.handle || '';
+      $('instaHandle').href = c.instagram.follow_url || '#';
+      // Build the iframe — Lightwidget loads via this URL pattern
+      const iframe = document.createElement('iframe');
+      iframe.src = c.instagram.embed_url;
+      iframe.setAttribute('scrolling', 'no');
+      iframe.setAttribute('allowtransparency', 'true');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('loading', 'lazy');
+      $('instaScroller').appendChild(iframe);
+      // Optionally load Lightwidget's enhancement script (handles resize)
+      if (!document.querySelector('script[src*="lightwidget.js"]')) {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.lightwidget.com/widgets/lightwidget.js';
+        script.async = true;
+        document.body.appendChild(script);
+      }
+      $('instaFollow').textContent = c.instagram.follow_label || 'Follow on Instagram';
+      $('instaFollow').href = c.instagram.follow_url || 'https://instagram.com';
+    }
     // Footer
     $('footerTagline').textContent = c.footer.tagline;
     $('footerAddress').innerHTML = `${esc(c.footer.address_line_1)}<br>${esc(c.footer.address_line_2)}`;
@@ -974,7 +1120,7 @@
     let content;
     try {
       // Fetch all content files in parallel
-      const sections = ['site', 'hero', 'ticker', 'about', 'events', 'gallery', 'join', 'footer'];
+      const sections = ['site', 'hero', 'ticker', 'about', 'events', 'gallery', 'instagram', 'join', 'footer'];
       const cacheBust = '?t=' + Date.now();
       const responses = await Promise.all(
         sections.map(s => fetch(`content/${s}.json${cacheBust}`).then(r => {
