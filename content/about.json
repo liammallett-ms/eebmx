@@ -2,17 +2,35 @@
   "eyebrow": "The Club",
   "heading_main": "A family club",
   "heading_accent": "that punches above its weight.",
-  "image": "",
+  "image": "/uploads/about-us.avif",
   "image_label": "Hero Track Photo",
   "paragraphs": [
-    { "text": "Maroondah BMX Club — the Eastfield Eagles — was founded in 1980 at Norton Park, Croydon, and moved to its current home on Colchester Road, Kilsyth, in 1991." },
-    { "text": "We've produced top-8 Australian and Victorian riders, sent kids as young as 9 to the World Championships, and reopened in January 2025 with a brand new Pro Gate and a transformed track." },
-    { "text": "Run by members. Built for riders. Open to everyone." }
+    {
+      "text": "Maroondah BMX Club — the Eastfield Eagles — was founded in 1980 at Norton Park, Croydon, and moved to its current home on Colchester Road, Kilsyth, in 1991."
+    },
+    {
+      "text": "We've produced top-8 Australian and Victorian riders, sent kids as young as 9 to the World Championships, and reopened in January 2025 with a brand new Pro Gate and a transformed track."
+    },
+    {
+      "text": "Run by members. Built for riders. Open to everyone."
+    }
   ],
   "stats": [
-    { "number": "45", "label": "Years of Racing" },
-    { "number": "2+", "label": "Min. Rider Age" },
-    { "number": "$3", "label": "Gate Night Entry" },
-    { "number": "4wk", "label": "Free Trial" }
+    {
+      "number": "45",
+      "label": "Years of Racing"
+    },
+    {
+      "number": "2+",
+      "label": "Min. Rider Age"
+    },
+    {
+      "number": "$3",
+      "label": "Gate Night Entry"
+    },
+    {
+      "number": "4wk",
+      "label": "Free Trial"
+    }
   ]
 }
