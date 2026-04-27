@@ -29,9 +29,9 @@
       "size": "normal"
     },
     {
-      "image": "",
+      "image": "/uploads/img_6268.jpg",
       "label": "Podium",
-      "size": "normal"
+      "size": "tall"
     },
     {
       "image": "/uploads/20260329_113543.jpg",
@@ -39,9 +39,9 @@
       "size": "normal"
     },
     {
-      "image": "",
+      "image": "/uploads/img_6297.jpg",
       "label": "Coaching",
-      "size": "normal"
+      "size": "wide"
     }
   ]
 }
