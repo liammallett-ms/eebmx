@@ -4,20 +4,20 @@
   "heading_accent": "on this week",
   "items": [
     {
+      "day": "Monday Coaching -- ",
+      "title": "Coaching with Dane",
+      "time": "5:00 Beginners - 6:00 Intermediate and Advanced",
+      "description": "Inclusive coaching for riders of all abilities. Welcoming, supportive and 100% focused on having fun on the bike.",
+      "cost_amount": "$5-20",
+      "cost_unit": "per rider"
+    },
+    {
       "day": "Tuesday Nights",
       "title": "Gate Night",
       "time": "6:00pm – 7:30pm",
       "description": "Open practice on the Pro Gate. All AUS Cycling members welcome — any club, any track. Canteen open.",
-      "cost_amount": "$3",
+      "cost_amount": "$5",
       "cost_unit": "per rider"
-    },
-    {
-      "day": "Monday Coaching -- Coaching with Dane",
-      "title": "All-Abilities",
-      "time": "Coaching with Harry",
-      "description": "Inclusive coaching for riders of all abilities. Welcoming, supportive and 100% focused on having fun on the bike.",
-      "cost_amount": "Members",
-      "cost_unit": "only"
     },
     {
       "day": "Tuesday Coaching",
