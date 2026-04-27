@@ -12,6 +12,14 @@
       "cost_unit": "per rider"
     },
     {
+      "day": "Monday Coaching -- Coaching with Dane",
+      "title": "All-Abilities",
+      "time": "Coaching with Harry",
+      "description": "Inclusive coaching for riders of all abilities. Welcoming, supportive and 100% focused on having fun on the bike.",
+      "cost_amount": "Members",
+      "cost_unit": "only"
+    },
+    {
       "day": "Tuesday Coaching",
       "title": "Coaching with Connor",
       "time": "4:00pm Mini · 4:30 Beginner · 5:15 Intermediate",
@@ -20,12 +28,12 @@
       "cost_unit": "per session"
     },
     {
-      "day": "Wednesdays",
-      "title": "All-Abilities",
-      "time": "Coaching with Harry",
-      "description": "Inclusive coaching for riders of all abilities. Welcoming, supportive and 100% focused on having fun on the bike.",
-      "cost_amount": "Members",
-      "cost_unit": "only"
+      "day": "Thursday Coaching",
+      "title": "Thursday Coaching with Bodi",
+      "time": "4:30 Onwards",
+      "cost_amount": "$5 - $20",
+      "cost_unit": "per rider",
+      "description": "Coaching with Olympian Bodi Turner. Coaching for all ages from Beginner to Advanced"
     }
   ]
 }
