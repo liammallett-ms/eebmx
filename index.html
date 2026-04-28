@@ -183,30 +183,23 @@
   }
   .nav-links a:hover { color: var(--white); }
   .nav-links a:hover::after { width: 100%; }
-  .nav-cta {
+ .nav-links a.nav-cta {
     background: var(--green);
-    color: var(--black);
+    color: #0a0710 !important;
     padding: 10px 20px;
     border-radius: 6px;
-    font-weight: 700;
+    font-weight: 900;
     font-size: 12px;
     letter-spacing: 0.1em;
     transition: all 0.2s;
   }
-  .nav-cta:hover {
+  .nav-links a.nav-cta:hover {
     background: var(--white);
+    color: #0a0710 !important;
     transform: translateY(-1px);
     box-shadow: 0 8px 24px rgba(0,255,148,0.3);
   }
-  .nav-cta::after { display: none; }
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--white);
-    font-size: 24px;
-    cursor: pointer;
-  }
+  .nav-links a.nav-cta::after { display: none; }
 
   /* Hero */
   .hero {
