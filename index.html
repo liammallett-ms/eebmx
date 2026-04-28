@@ -568,11 +568,28 @@
     text-align: center;
   }
 
-  @media (max-width: 900px) {
+ @media (max-width: 900px) {
     .insta-scroller iframe {
-      height: 220px;
-      width: 2400px !important;
-      min-width: 2400px;
+      height: 200px;
+      width: 2160px !important;
+      min-width: 2160px;
+    }
+    .insta-scroller {
+      padding: 10px;
+    }
+  }
+  @media (max-width: 600px) {
+    .insta-scroller iframe {
+      height: 160px;
+      width: 1680px !important;
+      min-width: 1680px;
+    }
+    .insta-scroller {
+      padding: 8px;
+    }
+    .insta-scroller-wrap::before,
+    .insta-scroller-wrap::after {
+      width: 30px;
     }
   }
   /* Events */
