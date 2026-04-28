@@ -18,15 +18,45 @@
         },
         {
           "question": "Do I need to be a member to come to gate night?",
-          "answer": "Not initially — your first 4 weeks are free for anyone interested. After that you'll need an AUS Cycling licence to keep riding regularly. We'll help you sort it out."
+          "answer": "Not initially — your first 4 weeks are free for anyone new to BMX. After that you'll need an AUS Cycling licence to keep riding regularly. We'll help you sort it out."
         },
         {
           "question": "What's the minimum age to ride?",
-          "answer": "We have riders as young as 2 in our Mini-Wheelers programme. There's no upper age limit — we have plenty of riders in their 50s and 60s."
+          "answer": "Mini-wheelers can join from age 2 for club events. From age 3, kids can ride the track if they can confidently ride a pedal bike. There's no upper age limit — we have plenty of riders in their 50s and 60s."
         },
         {
           "question": "Where is the Eagles Nest?",
           "answer": "195 Colchester Road, Kilsyth VIC 3137. Plenty of parking on site. The track is signposted from the main road."
+        },
+        {
+          "question": "Is the track open to the public?",
+          "answer": "Yes — our facility is open to the public, welcoming both seasoned riders and those just starting out. Coaching, gate nights and races are members-only events, but anyone can come and ride the track outside scheduled events."
+        }
+      ]
+    },
+    {
+      "name": "Licences & Registration",
+      "icon": "📋",
+      "questions": [
+        {
+          "question": "How do I get an AUS Cycling licence?",
+          "answer": "Sign up online via Revolutionise Sport at revolutionise.com.au/maroondahbmxc/registration. Choose 'Maroondah BMX Club' as your affiliated club. The whole process takes about 10 minutes. We can help walk you through it at the canteen if you get stuck."
+        },
+        {
+          "question": "How much does an AUS Cycling licence cost?",
+          "answer": "Yearly memberships start at $100, depending on age — there are different rates for juniors, adults and casual riders. The first 4 weeks of riding are free of charge before you need to commit. Check auscycling.org.au for current pricing."
+        },
+        {
+          "question": "Why do I need an AUS Cycling licence?",
+          "answer": "It's mandatory to participate in all events — club coaching, gate nights, and races on any track in Australia. Crucially, it also provides your insurance coverage when riding. By choosing Maroondah BMX as your affiliated club, you're covered for all club-aligned activities."
+        },
+        {
+          "question": "I already have an AUS Cycling licence with another club — can I still ride here?",
+          "answer": "Yes. Gate nights welcome all AUS Cycling members regardless of which club you're affiliated with — any club, any track."
+        },
+        {
+          "question": "What's revSPORT and do I need it?",
+          "answer": "revSPORT (revolutionise.com.au) is the platform you sign up through. The 'membership' there is for the registration system itself — you become an actual AUS Cycling member through the same process. Use the participant's name and date of birth (not the parent's) when registering a child."
         }
       ]
     },
@@ -40,11 +70,11 @@
         },
         {
           "question": "How much is coaching?",
-          "answer": "Coaching with Connor on Tuesdays runs from $5 to $20 per session depending on the stream (Mini-Wheelers, Beginner or Intermediate). Wednesday All-Abilities coaching with Harry is included for members."
+          "answer": "Your first coaching session is free once you have your AUS Cycling membership. After that, sessions range from $5 to $20 per week depending on the stream (Mini-Wheelers, Beginner or Intermediate)."
         },
         {
-          "question": "Do I need an AUS Cycling licence?",
-          "answer": "Yes, after your first 4 free weeks. AUS Cycling licences are required for all racing and ongoing track access. You can sign up at auscycling.org.au — there are options for casual riders, juniors and full racing licences."
+          "question": "What's the total cost to get started?",
+          "answer": "Minimum to start riding regularly: 4 free weeks of trial, then about $100/year for an AUS Cycling licence (age-dependent), plus $3 per gate night and $5-$20 per coaching session you want to attend. Bike and gear are extra — talk to us about second-hand options if budget is tight."
         },
         {
           "question": "What's included in club membership?",
@@ -58,7 +88,7 @@
       "questions": [
         {
           "question": "What gear do I need to ride?",
-          "answer": "Minimum: a bike, a helmet (full-face preferred for racing, open-face fine for starting out), long sleeves and long pants. Closed-toe shoes. Gloves are strongly recommended. We can sometimes lend gear to brand-new riders for their first session."
+          "answer": "Minimum: a bike, a helmet (full-face preferred for racing, open-face fine for starting out), long sleeves and long pants at all times. Closed-toe shoes. Gloves are strongly recommended. We can sometimes lend gear to brand-new riders for their first session."
         },
         {
           "question": "Do I need a BMX-specific bike?",
@@ -69,8 +99,16 @@
           "answer": "We have a small number of loan bikes for first-time riders to try out. Mention it when you arrive at gate night and we'll see what's available."
         },
         {
+          "question": "What's a transponder and do I need one?",
+          "answer": "A transponder is a small electronic device that times your laps during races. From age 8 you're required to race with one. You can buy them through AusCycling or My Laps online."
+        },
+        {
+          "question": "Can I get a club jersey?",
+          "answer": "Yes — once you commit, you can order a personalised club jersey from our supplier ACE1. Talk to us at the canteen and we'll point you in the right direction."
+        },
+        {
           "question": "What number do I pick for racing?",
-          "answer": "Anything between 8 and 999. Once it's yours and registered, no one else in the state can take it."
+          "answer": "Choose any number between 8 and 999. Numbers 1–7 are reserved for the top 8 riders of the state and country. Think carefully — this number will follow you on your BMX journey, and once it's yours and registered no one else in the state can take it."
         }
       ]
     },
@@ -80,7 +118,7 @@
       "questions": [
         {
           "question": "When are races held?",
-          "answer": "Club racing happens periodically throughout the season — check our Facebook page or EntryBoss for the next race calendar. Gate nights every Tuesday are practice/training rather than racing."
+          "answer": "Club racing happens periodically throughout the season — check our Facebook page or EntryBoss for the next race calendar. Gate nights every Tuesday are practice/training rather than racing. We also host the popular Track Attack and AusCycling State Series events."
         },
         {
           "question": "Can my child race at other clubs?",
@@ -88,11 +126,15 @@
         },
         {
           "question": "How do I enter a race?",
-          "answer": "Most races run through EntryBoss (entryboss.cc). Once you have an AUS Cycling licence, you can register for any open event."
+          "answer": "Most races run through EntryBoss (entryboss.cc/calendar/maroondahbmx). Once you have an AUS Cycling licence, you can register for any open event."
+        },
+        {
+          "question": "What events does the club host?",
+          "answer": "We run the Track Attack series, host AusCycling State Series rounds, plus regular club racing throughout the season. Tuesday gate nights are weekly. Our calendar is on EntryBoss."
         },
         {
           "question": "Has the club produced any top riders?",
-          "answer": "Yes — we've sent kids as young as 9 to the World Championships and produced top-8 Australian and Victorian riders. The track and coaches have a strong pedigree."
+          "answer": "Yes — we've sent kids as young as 9 to the World Championships and produced top-8 Australian and Victorian riders. The Turner brothers have been with the club for over 25 years and competed at the highest levels. The track and coaches have a strong pedigree."
         }
       ]
     },
@@ -102,7 +144,11 @@
       "questions": [
         {
           "question": "When was the club founded?",
-          "answer": "Maroondah BMX Club — the Eastfield Eagles — was founded in 1980 at Norton Park, Croydon. We moved to the current home on Colchester Road, Kilsyth in 1991, and reopened in January 2025 with a brand new Pro Gate and a transformed track."
+          "answer": "Maroondah BMX Club — the Eastfield Eagles — was founded in 1980 at Norton Park, Croydon. We moved to the current home on Colchester Road, Kilsyth in 1991, and reopened in January 2025 after a year of closure with a brand new Pro Gate, transformed track, and a safer barrel gate."
+        },
+        {
+          "question": "What's the Pro Gate?",
+          "answer": "It's the state-of-the-art starting gate system installed during our recent track upgrade. It's safer, more reliable and provides a professional racing experience. The whole track was transformed during our 2024-25 closure thanks to a generous contribution from Maroondah City Council and a huge fundraising effort by our committee and volunteers."
         },
         {
           "question": "Who runs the club?",
@@ -110,7 +156,11 @@
         },
         {
           "question": "How can I volunteer or help out?",
-          "answer": "Easiest way is to come along regularly and chat with the committee. We always need hands for canteen, race-day setup, coaching support and event running. Even an hour a month makes a difference."
+          "answer": "Easiest way is to come along regularly and chat with the committee. We always need hands for canteen, race-day setup, coaching support and event running. Even an hour a month makes a difference. Like all club events, gate nights only operate with the help of volunteers."
+        },
+        {
+          "question": "Can my business sponsor the club?",
+          "answer": "Yes — we love local sponsors. We have packages that give your business visibility with a passionate audience while helping us maintain the track, programs and community. Email eastfieldeagles@gmail.com to talk about it."
         }
       ]
     }
