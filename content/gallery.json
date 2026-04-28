@@ -59,6 +59,11 @@
       "label": "."
     },
     {
+      "size": "normal",
+      "image": "/uploads/img_6199.jpg",
+      "label": "."
+    },
+    {
       "size": "wide",
       "image": "/uploads/img_6159.jpg",
       "label": "."
@@ -66,11 +71,6 @@
     {
       "size": "wide",
       "image": "/uploads/img_6181.jpg",
-      "label": "."
-    },
-    {
-      "size": "normal",
-      "image": "/uploads/img_6199.jpg",
       "label": "."
     }
   ]
