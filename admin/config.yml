@@ -185,3 +185,34 @@ collections:
               - { label: "URL", name: "url", widget: "string" }
           - { label: "Copyright Line", name: "copyright", widget: "string" }
           - { label: "Hashtags Line", name: "hashtags", widget: "string" }
+
+                # ---- FAQ ----
+      - name: "faq"
+        label: "❓ FAQ Page & Chatbot"
+        file: "content/faq.json"
+        description: "Powers both the FAQ page (/faq.html) and the chat widget on the homepage. Same content, two places."
+        fields:
+          - { label: "Page Title", name: "page_title", widget: "string", hint: "Big heading on /faq.html" }
+          - { label: "Page Subtitle", name: "page_subtitle", widget: "text", hint: "Tagline below the heading" }
+          - { label: "Search Placeholder", name: "search_placeholder", widget: "string", hint: "Greyed-out text inside the search box" }
+          - { label: "No Results Text", name: "no_results_text", widget: "text", hint: "Shown when a search has zero matches" }
+          - { label: "Chat Widget Button Label", name: "chat_button_label", widget: "string", hint: "Text on the floating chat button" }
+          - { label: "Chat Widget Header Title", name: "chat_panel_title", widget: "string" }
+          - { label: "Chat Widget Header Subtitle", name: "chat_panel_subtitle", widget: "string" }
+          - { label: "Chat Bot Unanswered Message", name: "chat_unanswered_message", widget: "text", hint: "Shown when chat search has no matches" }
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            summary: "{{fields.icon}} {{fields.name}}"
+            hint: "Group questions by topic. Each category appears as its own section on the FAQ page and as a topic button in the chat."
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string", hint: "A single emoji for visual flavour. Examples: 🚀 💰 🛡️ 🏁 🦅" }
+              - { label: "Category Name", name: "name", widget: "string", hint: "Examples: 'Getting Started', 'Costs & Memberships', 'Gear & What to Bring'" }
+              - label: "Questions"
+                name: "questions"
+                widget: "list"
+                summary: "{{fields.question}}"
+                fields:
+                  - { label: "Question", name: "question", widget: "string" }
+                  - { label: "Answer", name: "answer", widget: "text", hint: "Plain text. Line breaks are preserved." }
+
