@@ -12,11 +12,6 @@ backend:
 media_folder: "uploads"
 public_folder: "/uploads"
 
-media_library:
-name: default
-  config:
-    multiple: true
-
 # Show the live site link in the CMS top-right
 site_url: https://YOUR-SITE-DOMAIN.com           # ← change to your real domain
 display_url: https://YOUR-SITE-DOMAIN.com        # ← change to your real domain
