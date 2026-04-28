@@ -66,26 +66,26 @@
   .hero::before {
     content: '';
     position: absolute;
-    bottom: -20%;
+    bottom: -10%;
     left: 50%;
     transform: translateX(-50%);
-    width: min(900px, 110vw);
-    height: min(900px, 110vw);
+    width: min(1600px, 160vw);
+    height: min(1600px, 160vw);
     background-image: url('/uploads/eagles-logo.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.08;
+    opacity: 0.06;
     z-index: 1;
     pointer-events: none;
-    filter: invert(1) sepia(1) saturate(4) hue-rotate(230deg) brightness(0.9);
+    filter: hue-rotate(-30deg) saturate(0.5) brightness(1.3);
   }
   @media (max-width: 700px) {
     .hero::before {
-      bottom: -10%;
-      width: 130vw;
-      height: 130vw;
-      opacity: 0.06;
+      bottom: -5%;
+      width: 180vw;
+      height: 180vw;
+      opacity: 0.05;
     }
   }
   /* Loading state */
