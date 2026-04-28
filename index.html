@@ -1211,5 +1211,300 @@
 
   boot();
 </script>
+  <!-- ===== FAQ Chat Widget — paste before </body> ===== -->
+<style>
+  /* Chat widget */
+  .chat-launcher {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 200;
+    background: var(--green);
+    color: var(--black);
+    border: none;
+    border-radius: 999px;
+    padding: 14px 22px 14px 18px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,255,148,0.3);
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  .chat-launcher.shown { opacity: 1; transform: translateY(0); }
+  .chat-launcher:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(0,255,148,0.3), 0 0 0 1px rgba(0,255,148,0.5);
+  }
+  .chat-launcher.hidden {
+    transform: translateY(80px);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .chat-launcher-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--black);
+    color: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 900;
+  }
+  .chat-panel {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 380px;
+    max-width: calc(100vw - 32px);
+    max-height: 600px;
+    height: calc(100vh - 80px);
+    background: var(--black-2);
+    border: 1px solid var(--purple-bright);
+    border-radius: 20px;
+    z-index: 200;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(176, 98, 232, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .chat-panel.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+  .chat-header {
+    padding: 20px 22px;
+    background: linear-gradient(135deg, var(--purple) 0%, #4a1f6b 100%);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .chat-header-text { flex: 1; }
+  .chat-header-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.04em; line-height: 1; }
+  .chat-header-sub { font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 4px; }
+  .chat-close { background: rgba(0,0,0,0.3); border: none; color: var(--white); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 18px; line-height: 1; }
+  .chat-close:hover { background: rgba(0,0,0,0.6); }
+  .chat-search-wrap { padding: 14px 16px; background: var(--black-3); border-bottom: 1px solid var(--border); }
+  .chat-search { width: 100%; background: var(--black); border: 1px solid var(--border); border-radius: 10px; padding: 11px 14px; color: var(--white); font-family: inherit; font-size: 14px; }
+  .chat-search::placeholder { color: var(--grey); }
+  .chat-search:focus { outline: none; border-color: var(--purple-bright); }
+  .chat-body { flex: 1; overflow-y: auto; padding: 16px; scrollbar-width: thin; scrollbar-color: var(--purple) var(--black-2); }
+  .chat-body::-webkit-scrollbar { width: 6px; }
+  .chat-body::-webkit-scrollbar-track { background: var(--black-3); }
+  .chat-body::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 3px; }
+  .chat-bubble { max-width: 85%; padding: 12px 16px; border-radius: 14px; font-size: 14px; line-height: 1.5; margin-bottom: 10px; animation: bubbleIn 0.3s cubic-bezier(0.22, 1, 0.36, 1); }
+  .chat-bubble.bot { background: var(--black-3); border: 1px solid var(--border); color: var(--grey-2); border-top-left-radius: 4px; }
+  .chat-bubble.user { background: var(--purple); color: var(--white); margin-left: auto; border-top-right-radius: 4px; }
+  .chat-bubble strong { color: var(--white); }
+  .chat-bubble a { color: var(--green); text-decoration: none; border-bottom: 1px solid rgba(0,255,148,0.3); }
+  .chat-categories { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .chat-category-btn { background: var(--black-3); border: 1px solid var(--border); color: var(--white); padding: 12px 16px; border-radius: 12px; cursor: pointer; text-align: left; font-family: inherit; font-size: 13px; display: flex; align-items: center; gap: 10px; transition: all 0.2s; }
+  .chat-category-btn:hover { background: var(--purple); border-color: var(--purple-bright); transform: translateX(3px); }
+  .chat-category-btn-icon { font-size: 18px; }
+  .chat-category-btn-name { flex: 1; font-weight: 500; }
+  .chat-category-btn-count { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--grey-2); letter-spacing: 0.1em; }
+  .chat-q-btn { background: var(--black); border: 1px solid var(--border); color: var(--grey-2); padding: 11px 14px; border-radius: 10px; cursor: pointer; text-align: left; font-family: inherit; font-size: 13px; line-height: 1.4; margin-bottom: 6px; width: 100%; transition: all 0.15s; }
+  .chat-q-btn:hover { border-color: var(--green); color: var(--white); background: var(--black-3); }
+  .chat-q-btn mark { background: rgba(0,255,148,0.25); color: var(--green); }
+  .chat-back-btn { background: transparent; border: 1px dashed var(--border); color: var(--grey); padding: 8px 12px; border-radius: 8px; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; transition: all 0.2s; }
+  .chat-back-btn:hover { color: var(--green); border-color: var(--green); }
+  .chat-faq-link { display: block; text-align: center; margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--green); text-decoration: none; text-transform: uppercase; padding: 10px; border: 1px solid var(--green); border-radius: 8px; transition: all 0.2s; }
+  .chat-faq-link:hover { background: var(--green); color: var(--black); }
+  @keyframes bubbleIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 700px) {
+    .chat-launcher { padding: 12px 18px 12px 14px; font-size: 13px; }
+    .chat-panel { width: 100%; max-width: 100%; right: 0; bottom: 0; border-radius: 20px 20px 0 0; max-height: 80vh; }
+  }
+</style>
+
+<button id="chatLauncher" class="chat-launcher" aria-label="Open FAQ assistant">
+  <span class="chat-launcher-icon">?</span>
+  <span id="chatLauncherLabel">Got questions?</span>
+</button>
+
+<div id="chatPanel" class="chat-panel" role="dialog" aria-labelledby="chatTitle">
+  <div class="chat-header">
+    <div class="chat-header-text">
+      <div class="chat-header-title" id="chatTitle">Eagles FAQ Bot</div>
+      <div class="chat-header-sub" id="chatSub">Tap a topic or search to find answers.</div>
+    </div>
+    <button id="chatClose" class="chat-close" aria-label="Close">×</button>
+  </div>
+  <div class="chat-search-wrap">
+    <input id="chatSearch" class="chat-search" type="search" autocomplete="off" placeholder="Search…">
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+</div>
+
+<script>
+(function() {
+  let faqData = null;
+  let chatView = 'home';
+  let activeCategoryIndex = null;
+  let activeAnswer = null;
+
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function highlight(text, query) {
+    if (!query) return esc(text);
+    const re = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return esc(text).replace(re, '<mark>$1</mark>');
+  }
+
+  function renderChat() {
+    const body = $('chatBody');
+    body.innerHTML = '';
+    if (chatView === 'home') {
+      const welcome = document.createElement('div');
+      welcome.className = 'chat-bubble bot';
+      welcome.innerHTML = `Hi! I can help you find answers about racing, gear, costs and more. <strong>Pick a topic</strong> or search above.`;
+      body.appendChild(welcome);
+      const catList = document.createElement('div');
+      catList.className = 'chat-categories';
+      faqData.categories.forEach((cat, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'chat-category-btn';
+        btn.innerHTML = `<span class="chat-category-btn-icon">${esc(cat.icon || '•')}</span><span class="chat-category-btn-name">${esc(cat.name)}</span><span class="chat-category-btn-count">${cat.questions.length}</span>`;
+        btn.addEventListener('click', () => { chatView = 'category'; activeCategoryIndex = i; renderChat(); });
+        catList.appendChild(btn);
+      });
+      body.appendChild(catList);
+      const faqLink = document.createElement('a');
+      faqLink.className = 'chat-faq-link';
+      faqLink.href = '/faq.html';
+      faqLink.textContent = 'View Full FAQ Page →';
+      body.appendChild(faqLink);
+    } else if (chatView === 'category') {
+      const cat = faqData.categories[activeCategoryIndex];
+      const back = document.createElement('button');
+      back.className = 'chat-back-btn';
+      back.textContent = '← Back to topics';
+      back.addEventListener('click', () => { chatView = 'home'; renderChat(); });
+      body.appendChild(back);
+      const head = document.createElement('div');
+      head.className = 'chat-bubble bot';
+      head.innerHTML = `<strong>${esc(cat.icon)} ${esc(cat.name)}</strong> — pick a question:`;
+      body.appendChild(head);
+      cat.questions.forEach((q, qi) => {
+        const btn = document.createElement('button');
+        btn.className = 'chat-q-btn';
+        btn.textContent = q.question;
+        btn.addEventListener('click', () => { chatView = 'answer'; activeAnswer = { ci: activeCategoryIndex, qi }; renderChat(); });
+        body.appendChild(btn);
+      });
+    } else if (chatView === 'answer') {
+      const { ci, qi } = activeAnswer;
+      const cat = faqData.categories[ci];
+      const q = cat.questions[qi];
+      const back = document.createElement('button');
+      back.className = 'chat-back-btn';
+      back.textContent = `← Back to ${cat.name}`;
+      back.addEventListener('click', () => { chatView = 'category'; activeCategoryIndex = ci; renderChat(); });
+      body.appendChild(back);
+      const userBubble = document.createElement('div');
+      userBubble.className = 'chat-bubble user';
+      userBubble.textContent = q.question;
+      body.appendChild(userBubble);
+      const ans = document.createElement('div');
+      ans.className = 'chat-bubble bot';
+      ans.innerHTML = esc(q.answer).replace(/\n/g, '<br>');
+      body.appendChild(ans);
+      if (cat.questions.length > 1) {
+        const suggest = document.createElement('div');
+        suggest.className = 'chat-bubble bot';
+        suggest.innerHTML = `Other questions in <strong>${esc(cat.name)}</strong>:`;
+        body.appendChild(suggest);
+        cat.questions.forEach((other, oi) => {
+          if (oi === qi) return;
+          const btn = document.createElement('button');
+          btn.className = 'chat-q-btn';
+          btn.textContent = other.question;
+          btn.addEventListener('click', () => { chatView = 'answer'; activeAnswer = { ci, qi: oi }; renderChat(); });
+          body.appendChild(btn);
+        });
+      }
+    }
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function chatSearch(query) {
+    const body = $('chatBody');
+    if (!query.trim()) { chatView = 'home'; renderChat(); return; }
+    body.innerHTML = '';
+    const back = document.createElement('button');
+    back.className = 'chat-back-btn';
+    back.textContent = '← Back to topics';
+    back.addEventListener('click', () => { $('chatSearch').value = ''; chatView = 'home'; renderChat(); });
+    body.appendChild(back);
+    const matches = [];
+    faqData.categories.forEach((cat, ci) => {
+      cat.questions.forEach((q, qi) => {
+        const hay = (q.question + ' ' + q.answer).toLowerCase();
+        if (hay.includes(query.toLowerCase())) matches.push({ cat, ci, q, qi });
+      });
+    });
+    if (matches.length === 0) {
+      const none = document.createElement('div');
+      none.className = 'chat-bubble bot';
+      none.innerHTML = esc(faqData.chat_unanswered_message || "I don't have an answer for that. Try different words or email us.");
+      body.appendChild(none);
+      return;
+    }
+    const head = document.createElement('div');
+    head.className = 'chat-bubble bot';
+    head.innerHTML = `Found <strong>${matches.length}</strong> ${matches.length === 1 ? 'match' : 'matches'}:`;
+    body.appendChild(head);
+    matches.slice(0, 8).forEach(m => {
+      const btn = document.createElement('button');
+      btn.className = 'chat-q-btn';
+      btn.innerHTML = `${highlight(m.q.question, query)} <span style="display:block;font-size:10px;color:var(--grey);margin-top:4px;font-family:'JetBrains Mono',monospace;letter-spacing:0.15em;text-transform:uppercase;">${esc(m.cat.name)}</span>`;
+      btn.addEventListener('click', () => { chatView = 'answer'; activeAnswer = { ci: m.ci, qi: m.qi }; renderChat(); });
+      body.appendChild(btn);
+    });
+  }
+
+  async function bootChat() {
+    try {
+      const res = await fetch('content/faq.json?t=' + Date.now());
+      if (!res.ok) throw new Error('FAQ not loaded');
+      faqData = await res.json();
+    } catch (err) { return; /* silently hide widget if FAQ fails */ }
+
+    $('chatLauncherLabel').textContent = faqData.chat_button_label || 'Got questions?';
+    $('chatTitle').textContent = faqData.chat_panel_title || 'Eagles FAQ Bot';
+    $('chatSub').textContent = faqData.chat_panel_subtitle || '';
+    $('chatSearch').placeholder = faqData.search_placeholder || 'Search…';
+
+    renderChat();
+
+    // Show launcher after a short delay (after intro)
+    setTimeout(() => $('chatLauncher').classList.add('shown'), 2000);
+
+    $('chatLauncher').addEventListener('click', () => {
+      $('chatLauncher').classList.add('hidden');
+      $('chatPanel').classList.add('open');
+    });
+    $('chatClose').addEventListener('click', () => {
+      $('chatPanel').classList.remove('open');
+      $('chatLauncher').classList.remove('hidden');
+    });
+    let chatTimer;
+    $('chatSearch').addEventListener('input', (e) => {
+      clearTimeout(chatTimer);
+      chatTimer = setTimeout(() => chatSearch(e.target.value), 100);
+    });
+  }
+
+  bootChat();
+})();
+</script>
+
 </body>
 </html>
