@@ -822,7 +822,48 @@
   /* Responsive */
   @media (max-width: 900px) {
     nav { padding: 16px 20px; }
-    .nav-links { display: none; }
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(10, 7, 16, 0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px 24px;
+      transform: translateY(-10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    nav.menu-open .nav-links {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-links li {
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links li:last-child {
+      border-bottom: none;
+      padding-top: 12px;
+    }
+    .nav-links a {
+      display: block;
+      padding: 16px 4px;
+      width: 100%;
+    }
+    .nav-links a.nav-cta {
+      text-align: center;
+      padding: 14px 20px;
+    }
+    .menu-toggle.is-open {
+      color: var(--green);
+    }
     .menu-toggle { display: block; }
     .hero { padding: 110px 22px 60px; }
     .section-pad { padding: 80px 22px; }
@@ -1201,7 +1242,26 @@
       });
     });
   }
-
+// Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('menu-open');
+        toggle.classList.toggle('is-open');
+        toggle.textContent = nav.classList.contains('menu-open') ? '✕' : '☰';
+      });
+      // Close menu when a link is clicked
+      nav.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('menu-open');
+          toggle.classList.remove('is-open');
+          toggle.textContent = '☰';
+        });
+      });
+    }
+  });
   function dismissIntro() {
     const overlay = $('introOverlay');
     const nav = $('nav');
