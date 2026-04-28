@@ -1,0 +1,118 @@
+{
+  "page_title": "Frequently Asked Questions",
+  "page_subtitle": "Everything you need to know about racing, coaching and gate nights at the Eagles Nest.",
+  "search_placeholder": "Search questions…",
+  "no_results_text": "No questions matched. Try different words, or email us at eastfieldeagles@gmail.com.",
+  "chat_button_label": "Got questions?",
+  "chat_panel_title": "Eagles FAQ Bot",
+  "chat_panel_subtitle": "Tap a topic or search to find answers.",
+  "chat_unanswered_message": "I don't have an answer for that one. Email us at eastfieldeagles@gmail.com and we'll get back to you.",
+  "categories": [
+    {
+      "name": "Getting Started",
+      "icon": "🚀",
+      "questions": [
+        {
+          "question": "How do I start riding with the Eastfield Eagles?",
+          "answer": "Easiest way: come down to the track on a Tuesday Gate Night from 6:00pm. Bring a bike, helmet, long sleeves and long pants. Your first 4 weeks are free — no licence required to try us out."
+        },
+        {
+          "question": "Do I need to be a member to come to gate night?",
+          "answer": "Not initially — your first 4 weeks are free for anyone interested. After that you'll need an AUS Cycling licence to keep riding regularly. We'll help you sort it out."
+        },
+        {
+          "question": "What's the minimum age to ride?",
+          "answer": "We have riders as young as 2 in our Mini-Wheelers programme. There's no upper age limit — we have plenty of riders in their 50s and 60s."
+        },
+        {
+          "question": "Where is the Eagles Nest?",
+          "answer": "195 Colchester Road, Kilsyth VIC 3137. Plenty of parking on site. The track is signposted from the main road."
+        }
+      ]
+    },
+    {
+      "name": "Costs & Memberships",
+      "icon": "💰",
+      "questions": [
+        {
+          "question": "How much does Gate Night cost?",
+          "answer": "$3 per rider for AUS Cycling members. Your first 4 weeks are free if you're new to the club."
+        },
+        {
+          "question": "How much is coaching?",
+          "answer": "Coaching with Connor on Tuesdays runs from $5 to $20 per session depending on the stream (Mini-Wheelers, Beginner or Intermediate). Wednesday All-Abilities coaching with Harry is included for members."
+        },
+        {
+          "question": "Do I need an AUS Cycling licence?",
+          "answer": "Yes, after your first 4 free weeks. AUS Cycling licences are required for all racing and ongoing track access. You can sign up at auscycling.org.au — there are options for casual riders, juniors and full racing licences."
+        },
+        {
+          "question": "What's included in club membership?",
+          "answer": "Track access, gate night participation, Wednesday all-abilities coaching, club racing events, member-only events and the Eagles community. Talk to us at the canteen for current membership rates."
+        }
+      ]
+    },
+    {
+      "name": "Gear & What to Bring",
+      "icon": "🛡️",
+      "questions": [
+        {
+          "question": "What gear do I need to ride?",
+          "answer": "Minimum: a bike, a helmet (full-face preferred for racing, open-face fine for starting out), long sleeves and long pants. Closed-toe shoes. Gloves are strongly recommended. We can sometimes lend gear to brand-new riders for their first session."
+        },
+        {
+          "question": "Do I need a BMX-specific bike?",
+          "answer": "For first-timers, any bike that fits and isn't a road bike will get you through gate night. If you decide to stick with it, you'll want a proper BMX race bike — we can advise on what to look for and where to buy."
+        },
+        {
+          "question": "Can I borrow a bike?",
+          "answer": "We have a small number of loan bikes for first-time riders to try out. Mention it when you arrive at gate night and we'll see what's available."
+        },
+        {
+          "question": "What number do I pick for racing?",
+          "answer": "Anything between 8 and 999. Once it's yours and registered, no one else in the state can take it."
+        }
+      ]
+    },
+    {
+      "name": "Racing & Events",
+      "icon": "🏁",
+      "questions": [
+        {
+          "question": "When are races held?",
+          "answer": "Club racing happens periodically throughout the season — check our Facebook page or EntryBoss for the next race calendar. Gate nights every Tuesday are practice/training rather than racing."
+        },
+        {
+          "question": "Can my child race at other clubs?",
+          "answer": "Absolutely — that's the point of an AUS Cycling licence. They can race at any AUS Cycling-affiliated BMX track in Australia."
+        },
+        {
+          "question": "How do I enter a race?",
+          "answer": "Most races run through EntryBoss (entryboss.cc). Once you have an AUS Cycling licence, you can register for any open event."
+        },
+        {
+          "question": "Has the club produced any top riders?",
+          "answer": "Yes — we've sent kids as young as 9 to the World Championships and produced top-8 Australian and Victorian riders. The track and coaches have a strong pedigree."
+        }
+      ]
+    },
+    {
+      "name": "About the Club",
+      "icon": "🦅",
+      "questions": [
+        {
+          "question": "When was the club founded?",
+          "answer": "Maroondah BMX Club — the Eastfield Eagles — was founded in 1980 at Norton Park, Croydon. We moved to the current home on Colchester Road, Kilsyth in 1991, and reopened in January 2025 with a brand new Pro Gate and a transformed track."
+        },
+        {
+          "question": "Who runs the club?",
+          "answer": "We're a volunteer-run, member-owned club. Committee members are all parents, riders and ex-riders who do this for love of the sport. If you'd like to get involved, talk to us at the canteen."
+        },
+        {
+          "question": "How can I volunteer or help out?",
+          "answer": "Easiest way is to come along regularly and chat with the committee. We always need hands for canteen, race-day setup, coaching support and event running. Even an hour a month makes a difference."
+        }
+      ]
+    }
+  ]
+}
