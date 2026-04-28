@@ -62,7 +62,32 @@
     z-index: 0;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
   }
-
+/* Eagles logo background watermark */
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(900px, 110vw);
+    height: min(900px, 110vw);
+    background-image: url('/uploads/eagles-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.06;
+    z-index: 1;
+    pointer-events: none;
+    filter: hue-rotate(-30deg) saturate(0.5) brightness(1.3);
+  }
+  @media (max-width: 700px) {
+    .hero::before {
+      bottom: -10%;
+      width: 130vw;
+      height: 130vw;
+      opacity: 0.05;
+    }
+  }
   /* Loading state */
   #app { opacity: 0; transition: opacity 0.4s ease; }
   #app.ready { opacity: 1; }
