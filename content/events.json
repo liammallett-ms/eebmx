@@ -34,6 +34,14 @@
       "cost_amount": "$5 - $20",
       "cost_unit": "per rider",
       "description": "Coaching with Olympian Bodi Turner. Coaching for all ages from Beginner to Advanced"
+    },
+    {
+      "day": "Racing",
+      "title": "Eastfield vs Lilydale Round 1",
+      "time": "9am Practice - 10:30 Racing",
+      "description": "Round 1 of the Eastfield vs Lilydale Series",
+      "cost_amount": "$75 Series - $20 Race Only",
+      "cost_unit": ","
     }
   ]
 }
