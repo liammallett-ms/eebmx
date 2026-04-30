@@ -963,6 +963,7 @@
       <li><a href="#whats-on">What's On</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="/faq.html">FAQ</a></li>
+       <li id="navShopLink" style="display:none;"><a href="/shop.html">Shop</a></li>
       <li><a href="#join" class="nav-cta">Join Now</a></li>
     </ul>
     <button class="menu-toggle" aria-label="Menu">☰</button>
@@ -1105,7 +1106,11 @@
     // <head>
     document.title = c.site.title;
     $('meta-description').setAttribute('content', c.site.description);
-
+  // Show Shop link in nav if enabled in CMS
+    if (c.site && c.site.show_shop) {
+      const navShopLink = document.getElementById('navShopLink');
+      if (navShopLink) navShopLink.style.display = '';
+    }
     // Logo + intro video
     if (c.site.logo) $('navLogo').src = c.site.logo;
     if (c.site.intro_video) $('introVideoSrc').src = c.site.intro_video;
