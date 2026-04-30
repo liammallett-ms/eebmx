@@ -34,7 +34,8 @@ collections:
           - { label: "Page Description", name: "description", widget: "text", hint: "1-2 sentences describing the club. Shown in Google search results and when sharing the link." }
           - { label: "Club Logo", name: "logo", widget: "image", required: true, hint: "PNG with transparent background works best. Replaces the logo in the top-left of the site." }
           - { label: "Intro Video (MP4)", name: "intro_video", widget: "file", required: false, hint: "Plays full-screen when someone first visits the site. Leave empty to skip the intro." }
-
+           - { label: "Show Shop link in nav?", name: "show_shop", widget: "boolean", default: true, hint: "Toggle the Shop link on/off in the top navigation. The shop page itself stays accessible at /shop.html either way." }
+           
       # ---- 2. Hero ----
       - name: "hero"
         label: "🚀 Hero — top of homepage"
@@ -215,4 +216,57 @@ collections:
                 fields:
                   - { label: "Question", name: "question", widget: "string" }
                   - { label: "Answer", name: "answer", widget: "text", hint: "Plain text. Line breaks are preserved." }
+# ---- Shop ----
+      - name: "shop"
+        label: "🛒 Shop & Products"
+        file: "content/shop.json"
+        description: "Manage everything on the /shop.html page. To bulk-upload product photos, drag them into GitHub at /uploads/ first, then they'll appear in the image picker here."
+        fields:
+          - { label: "Page Eyebrow (small green text above heading)", name: "page_eyebrow", widget: "string" }
+          - { label: "Page Title", name: "page_title", widget: "string", hint: "The last word becomes the purple italic accent. e.g. 'Wear the Eagles.' → 'Eagles.' is purple italic" }
+          - { label: "Page Subtitle", name: "page_subtitle", widget: "text" }
+          - { label: "Info Banner (purple banner above products)", name: "info_banner", widget: "text", hint: "Wrap text in **double asterisks** to bold it." }
+          - label: "Filter Categories"
+            name: "categories"
+            widget: "list"
+            summary: "{{fields.name}}"
+            hint: "Filter pills shown above the products. Always start with 'All'. Add or remove categories as needed."
+            field: { label: "Category Name", name: "name", widget: "string" }
+          - label: "Products"
+            name: "products"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.price}}"
+            hint: "Add, remove or reorder products. Drag to reorder."
+            fields:
+              - { label: "Product Name", name: "name", widget: "string" }
+              - label: "Category"
+                name: "category"
+                widget: "string"
+                hint: "Must match one of the categories above (case-sensitive). Examples: Tees, Race Kit, Headwear, Outerwear."
+              - { label: "Product Photo", name: "image", widget: "image", required: false, hint: "Leave empty to show a styled 'Coming Soon' placeholder instead." }
+              - { label: "Placeholder Icon (only used if no photo)", name: "placeholder_icon", widget: "string", required: false, hint: "Single emoji shown in the placeholder. e.g. 🧢 for hats, 🧥 for jackets" }
+              - { label: "Placeholder Label (only used if no photo)", name: "placeholder_label", widget: "string", required: false, hint: "Short label shown under the icon." }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Options / Variants (sizes, colours)"
+                name: "options"
+                widget: "list"
+                summary: "{{fields.name}}"
+                required: false
+                field: { label: "Option", name: "name", widget: "string", hint: "Short label like 'XS', 'M', 'Adult', 'Custom #'" }
+              - { label: "Price Label (small text above price)", name: "price_label", widget: "string", required: false, hint: "e.g. 'From' or 'Estimated'. Leave blank for no label." }
+              - { label: "Price (display)", name: "price", widget: "string", hint: "How the price appears. e.g. '$35' or '$95'. Actual checkout price is set in Square." }
+              - { label: "Buy URL (Square Payment Link)", name: "buy_url", widget: "string", required: false, hint: "Get this from your Square dashboard. Leave blank if not available yet." }
+              - { label: "Buy Button Label", name: "buy_label", widget: "string", default: "Buy", hint: "What the button says. e.g. 'Buy', 'Order', 'Notify Me'" }
+              - { label: "Badge text (top-right corner)", name: "badge", widget: "string", required: false, hint: "Small label shown on the corner of the product card. e.g. 'New', 'Coming Soon', 'Sale'. Leave blank for no badge." }
+              - label: "Badge style"
+                name: "badge_style"
+                widget: "select"
+                default: "new"
+                options:
+                  - { label: "New (green)", value: "new" }
+                  - { label: "Signature (purple)", value: "signature" }
+                  - { label: "Coming Soon (purple outline)", value: "coming" }
+                  - { label: "Sale (red)", value: "sale" }
+              - { label: "Available to buy?", name: "available", widget: "boolean", default: true, hint: "Toggle off to disable the buy button while keeping the product visible (e.g. for 'Coming Soon' items)." }
+          - { label: "Footer Note", name: "footer_note", widget: "string" }
 
