@@ -1263,8 +1263,11 @@
     const video = $('introVideo');
     const nav = $('nav');
 
-    if (!content.site.intro_video) {
-      // No intro video set — skip straight to nav
+  let introSeen = false;
+    try { introSeen = sessionStorage.getItem('introSeen') === '1'; } catch (_) {}
+    
+    if (!content.site.intro_video || introSeen) {
+      // No intro video set, or user has already seen it this session — skip straight to nav
       overlay.classList.add('dismissed');
       nav.classList.add('visible');
     } else {
@@ -1327,12 +1330,14 @@
       });
     }
   });
-  function dismissIntro() {
+function dismissIntro() {
     const overlay = $('introOverlay');
     const nav = $('nav');
     overlay.classList.add('dismissed');
     setTimeout(() => nav.classList.add('visible'), 300);
     setTimeout(() => overlay.remove(), 1000);
+    // Remember we've shown the intro for this session
+    try { sessionStorage.setItem('introSeen', '1'); } catch (_) {}
   }
 
   boot();
