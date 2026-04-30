@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shop — Maroondah BMX Club / Eastfield Eagles</title>
+<meta name="description" content="Eastfield Eagles official merchandise — tees, hats, race jerseys and more." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --black: #0a0710;
+    --black-2: #120c1c;
+    --black-3: #1a1228;
+    --purple: #7B35A8;
+    --purple-bright: #B062E8;
+    --green: #00FF94;
+    --white: #ffffff;
+    --grey: #8a7fa0;
+    --grey-2: #c9bfdf;
+    --border: rgba(176, 98, 232, 0.18);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    line-height: 1.55;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 0%, rgba(123, 53, 168, 0.25), transparent 50%),
+      radial-gradient(ellipse 60% 50% at 100% 30%, rgba(0, 255, 148, 0.08), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(176, 98, 232, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(176, 98, 232, 0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+
+  /* Loading state */
+  .boot-loader {
+    position: fixed;
+    inset: 0;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--green);
+    text-transform: uppercase;
+    transition: opacity 0.4s;
+  }
+  .boot-loader.hide { opacity: 0; pointer-events: none; }
+  #app { opacity: 0; transition: opacity 0.4s; }
+  #app.ready { opacity: 1; }
+
+  /* Nav */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 7, 16, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: var(--white);
+  }
+  .logo-mark img {
+    height: 52px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 0 16px rgba(123, 53, 168, 0.45));
+  }
+  .back-link {
+    color: var(--grey-2);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .back-link::before {
+    content: '←';
+    transition: transform 0.2s;
+  }
+  .back-link:hover { color: var(--green); }
+  .back-link:hover::before { transform: translateX(-3px); }
+
+  /* Page header */
+  .page-head {
+    position: relative;
+    z-index: 2;
+    padding: 100px 40px 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .page-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .page-eyebrow::before, .page-eyebrow::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--green);
+  }
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 9vw, 130px);
+    line-height: 0.9;
+    letter-spacing: -0.005em;
+    margin-bottom: 16px;
+  }
+  .page-title .accent { color: var(--purple-bright); font-style: italic; }
+  .page-subtitle {
+    color: var(--grey-2);
+    font-size: 17px;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    max-width: 1300px;
+    margin: 40px auto 0;
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  .filter-pill {
+    background: var(--black-2);
+    border: 1px solid var(--border);
+    color: var(--grey-2);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-pill:hover { border-color: var(--purple-bright); color: var(--white); }
+  .filter-pill.active { background: var(--green); color: var(--black); border-color: var(--green); }
+
+  /* Info banner */
+  .info-banner {
+    max-width: 1300px;
+    margin: 40px auto 0;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+  }
+  .info-banner-inner {
+    background: linear-gradient(135deg, rgba(123, 53, 168, 0.2) 0%, rgba(123, 53, 168, 0.05) 100%);
+    border: 1px solid var(--purple-bright);
+    border-radius: 16px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .info-banner-icon { font-size: 32px; }
+  .info-banner-text {
+    flex: 1;
+    min-width: 280px;
+    color: var(--grey-2);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .info-banner-text strong { color: var(--green); }
+
+  /* Product grid */
+  .products {
+    max-width: 1300px;
+    margin: 60px auto 0;
+    padding: 0 40px 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    position: relative;
+    z-index: 2;
+  }
+  .product {
+    background: var(--black-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .product.hidden { display: none; }
+  .product:hover {
+    transform: translateY(-6px);
+    border-color: var(--purple-bright);
+    background: var(--black-3);
+  }
+  .product-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+  .product-badge.new { background: var(--green); color: var(--black); border-color: var(--green); }
+  .product-badge.coming { background: rgba(0,0,0,0.6); color: var(--purple-bright); border-color: var(--purple-bright); }
+  .product-badge.signature { background: var(--purple); color: var(--white); border-color: var(--purple-bright); }
+  .product-badge.sale { background: #ff3a5e; color: var(--white); border-color: #ff3a5e; }
+
+  .product-img {
+    aspect-ratio: 1;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s;
+  }
+  .product:hover .product-img img { transform: scale(1.04); }
+
+  .product-img.placeholder {
+    background:
+      linear-gradient(135deg, rgba(123, 53, 168, 0.4), rgba(0, 255, 148, 0.05)),
+      var(--black-3);
+    color: var(--grey-2);
+    flex-direction: column;
+    gap: 14px;
+  }
+  .product-img.placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(45deg, transparent 48%, rgba(176, 98, 232, 0.15) 49%, rgba(176, 98, 232, 0.15) 51%, transparent 52%);
+    background-size: 24px 24px;
+    opacity: 0.4;
+  }
+  .product-img.placeholder .icon {
+    font-size: 64px;
+    position: relative;
+    opacity: 0.5;
+  }
+  .product-img.placeholder .label {
+    position: relative;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border: 1px dashed var(--purple-bright);
+    border-radius: 4px;
+    background: rgba(10, 7, 16, 0.7);
+  }
+
+  .product-info {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-cat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .product-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+  }
+  .product-desc {
+    color: var(--grey-2);
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 18px;
+    flex: 1;
+  }
+  .product-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .product-options .opt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--grey);
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .product-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--white);
+    line-height: 1;
+  }
+  .product-price small {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .buy-btn {
+    background: var(--green);
+    color: var(--black);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+  .buy-btn:hover {
+    background: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,255,148,0.3);
+  }
+  .buy-btn .arrow { transition: transform 0.2s; }
+  .buy-btn:hover .arrow { transform: translateX(3px); }
+
+  .buy-btn.disabled {
+    background: var(--black-3);
+    color: var(--grey);
+    cursor: not-allowed;
+    border: 1px solid var(--border);
+  }
+  .buy-btn.disabled:hover {
+    background: var(--black-3);
+    transform: none;
+    box-shadow: none;
+  }
+
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--grey-2);
+    font-size: 16px;
+  }
+  .empty-state::before {
+    content: '🛒';
+    display: block;
+    font-size: 48px;
+    margin-bottom: 20px;
+    opacity: 0.4;
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px;
+    text-align: center;
+    background: var(--black-2);
+    position: relative;
+    z-index: 2;
+  }
+  footer p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--grey);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 14px 20px; }
+    .logo-mark img { height: 44px; }
+    .page-head { padding: 60px 22px 30px; }
+    .filter-bar { padding: 0 22px; gap: 6px; }
+    .filter-pill { padding: 8px 14px; font-size: 10px; }
+    .products { grid-template-columns: 1fr; gap: 20px; padding: 0 22px 60px; margin-top: 40px; }
+    .info-banner { padding: 0 22px; }
+  }
+  @media (min-width: 901px) and (max-width: 1100px) {
+    .products { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="boot-loader" id="bootLoader">Loading the shop…</div>
+
+<div id="app">
+  <nav>
+    <a href="/" class="logo-mark" aria-label="Maroondah BMX Club — Eastfield Eagles">
+      <img id="navLogo" src="/uploads/eagles-logo.png" alt="Eastfield Eagles">
+    </a>
+    <a href="/" class="back-link">Back to Home</a>
+  </nav>
+
+  <header class="page-head">
+    <div class="page-eyebrow" id="pageEyebrow"></div>
+    <h1 class="page-title" id="pageTitle"></h1>
+    <p class="page-subtitle" id="pageSubtitle"></p>
+  </header>
+
+  <div class="filter-bar" id="filterBar"></div>
+
+  <div class="info-banner">
+    <div class="info-banner-inner">
+      <div class="info-banner-icon">🦅</div>
+      <div class="info-banner-text" id="infoBanner"></div>
+    </div>
+  </div>
+
+  <main class="products" id="products"></main>
+
+  <footer>
+    <p id="footerNote"></p>
+  </footer>
+</div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const safeBold = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
+  let shopData = null;
+  let activeCategory = 'All';
+
+  function renderFilters() {
+    const bar = $('filterBar');
+    bar.innerHTML = '';
+    (shopData.categories || ['All']).forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-pill' + (cat === activeCategory ? ' active' : '');
+      btn.textContent = cat;
+      btn.addEventListener('click', () => {
+        activeCategory = cat;
+        renderFilters();
+        renderProducts();
+      });
+      bar.appendChild(btn);
+    });
+  }
+
+  function renderProducts() {
+    const grid = $('products');
+    grid.innerHTML = '';
+    const items = shopData.products.filter(p => activeCategory === 'All' || p.category === activeCategory);
+
+    if (items.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'empty-state';
+      empty.textContent = 'No products in this category yet.';
+      grid.appendChild(empty);
+      return;
+    }
+
+    items.forEach(p => {
+      const article = document.createElement('article');
+      article.className = 'product';
+
+      const badgeStyle = p.badge_style || 'new';
+      const badgeHtml = p.badge ? `<span class="product-badge ${esc(badgeStyle)}">${esc(p.badge)}</span>` : '';
+
+      const imgHtml = p.image
+        ? `<div class="product-img"><img src="${esc(p.image)}" alt="${esc(p.name)}"></div>`
+        : `<div class="product-img placeholder">
+             <span class="icon">${esc(p.placeholder_icon || '📦')}</span>
+             <span class="label">${esc(p.placeholder_label || p.name)}</span>
+           </div>`;
+
+      const optsHtml = (p.options || []).map(o => `<span class="opt">${esc(o)}</span>`).join('');
+      const isAvailable = p.available !== false;
+      const buyBtn = isAvailable && p.buy_url
+        ? `<a class="buy-btn" href="${esc(p.buy_url)}" target="_blank" rel="noopener">${esc(p.buy_label || 'Buy')} <span class="arrow">→</span></a>`
+        : `<span class="buy-btn disabled">${esc(p.buy_label || 'Notify Me')}</span>`;
+
+      article.innerHTML = `
+        ${badgeHtml}
+        ${imgHtml}
+        <div class="product-info">
+          <div class="product-cat">${esc(p.category || '')}</div>
+          <h3 class="product-name">${esc(p.name)}</h3>
+          <p class="product-desc">${esc(p.description || '')}</p>
+          ${optsHtml ? `<div class="product-options">${optsHtml}</div>` : ''}
+          <div class="product-bottom">
+            <div class="product-price">
+              ${p.price_label ? `<small>${esc(p.price_label)}</small>` : ''}
+              ${esc(p.price || '')}
+            </div>
+            ${buyBtn}
+          </div>
+        </div>
+      `;
+      grid.appendChild(article);
+    });
+  }
+
+  async function boot() {
+    try {
+      const res = await fetch('content/shop.json?t=' + Date.now());
+      if (!res.ok) throw new Error('Failed to load shop');
+      shopData = await res.json();
+    } catch (err) {
+      $('bootLoader').textContent = 'Could not load the shop. Try refreshing.';
+      console.error(err);
+      return;
+    }
+
+    // Best-effort logo from site.json
+    try {
+      const siteRes = await fetch('content/site.json?t=' + Date.now());
+      if (siteRes.ok) {
+        const site = await siteRes.json();
+        if (site.logo) $('navLogo').src = site.logo;
+        document.title = `Shop — ${site.title || 'Eastfield Eagles'}`;
+      }
+    } catch (_) {}
+
+    $('pageEyebrow').textContent = shopData.page_eyebrow || 'Eagles Shop';
+    // page_title supports an optional `.accent` span — split on the last word
+    const title = shopData.page_title || 'Wear the Eagles.';
+    const parts = title.match(/^(.+?\s)(\S+)$/);
+    if (parts) {
+      $('pageTitle').innerHTML = `${esc(parts[1])}<span class="accent">${esc(parts[2])}</span>`;
+    } else {
+      $('pageTitle').textContent = title;
+    }
+    $('pageSubtitle').textContent = shopData.page_subtitle || '';
+    $('infoBanner').innerHTML = safeBold(shopData.info_banner || '');
+    $('footerNote').textContent = shopData.footer_note || '';
+
+    renderFilters();
+    renderProducts();
+
+    $('app').classList.add('ready');
+    setTimeout(() => $('bootLoader').classList.add('hide'), 100);
+  }
+
+  boot();
+</script>
+</body>
+</html>
