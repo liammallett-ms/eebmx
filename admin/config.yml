@@ -35,7 +35,7 @@ collections:
           - { label: "Club Logo", name: "logo", widget: "image", required: true, hint: "PNG with transparent background works best. Replaces the logo in the top-left of the site." }
           - { label: "Intro Video (MP4)", name: "intro_video", widget: "file", required: false, hint: "Plays full-screen when someone first visits the site. Leave empty to skip the intro." }
           - { label: "Show Shop link in nav?", name: "show_shop", widget: "boolean", default: true, hint: "Toggle the Shop link on/off in the top navigation. The shop page itself stays accessible at /shop.html either way." }
-           
+          
       # ---- 2. Hero ----
       - name: "hero"
         label: "🚀 Hero — top of homepage"
