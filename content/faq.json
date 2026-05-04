@@ -1,28 +1,46 @@
 {
   "page_title": "Frequently Asked Questions",
-  "page_subtitle": "Everything you need to know about racing, coaching and gate nights at the Eagles Nest.",
+  "page_subtitle": "Everything you need to know about racing, coaching, gear and gate nights at the Eagles Nest.",
   "search_placeholder": "Search questions…",
   "no_results_text": "No questions matched. Try different words, or email us at eastfieldeagles@gmail.com.",
   "chat_button_label": "Got questions?",
   "chat_panel_title": "Eagles FAQ Bot",
   "chat_panel_subtitle": "Tap a topic or search to find answers.",
-  "chat_unanswered_message": "I don't have an answer for that one. Email us at eastfieldeagles@gmail.com and we'll get back to you.",
+  "chat_unanswered_message": "I don't have an answer for that one. Email us at eastfieldeagles@gmail.com or message us on Facebook/Instagram and we'll get back to you.",
   "categories": [
+    {
+      "name": "BMX Basics",
+      "icon": "🚴",
+      "questions": [
+        {
+          "question": "What is BMX racing?",
+          "answer": "BMX stands for Bicycle Motocross. BMX racing is fast and furious — races typically take 30-50 seconds. Riders launch from a gate at the top of a start hill. The discipline is all about explosive power and skill to hold speed around a track of 200-400m, with a variety of jumps, corners and flat sections."
+        },
+        {
+          "question": "Is BMX dangerous?",
+          "answer": "Like all action sports there are risks, but riders wear full protective gear (helmet, gloves, long pants and sleeves, closed shoes) and the track is purpose-built for safety. Mini Wheelers ride balance bikes only and Sprockets aren't timed — younger riders learn skills progressively before any competitive racing."
+        },
+        {
+          "question": "How long does a race day take?",
+          "answer": "Club races (\"clubbies\") usually run 1.5-2 hours and are smaller in numbers — a great place to start. Bigger events like State Series, State Championships and Nationals can run a full day with 400+ riders. Bring a chair, set up at the club tent and settle in."
+        }
+      ]
+    },
     {
       "name": "Getting Started",
       "icon": "🚀",
       "questions": [
         {
           "question": "How do I start riding with the Eastfield Eagles?",
-          "answer": "Easiest way: come down to the track on a Tuesday Gate Night from 6:00pm. Bring a bike, helmet, long sleeves and long pants. Your first 4 weeks are free — no licence required to try us out."
-        },
-        {
-          "question": "Do I need to be a member to come to gate night?",
-          "answer": "Not initially — your first 4 weeks are free for anyone new to BMX. After that you'll need an AUS Cycling licence to keep riding regularly. We'll help you sort it out."
+          "answer": "Easiest way: come down to the track on a Tuesday Gate Night from 6:15pm. Bring a bike, helmet, long sleeves and long pants. Your first 4 weeks are free under the AusCycling free trial — no commitment, no hassle."
         },
         {
           "question": "What's the minimum age to ride?",
-          "answer": "Mini-wheelers can join from age 2 for club events. From age 3, kids can ride the track if they can confidently ride a pedal bike. There's no upper age limit — we have plenty of riders in their 50s and 60s."
+          "answer": "BMX is for everyone! We have riders as young as 2 (Mini Wheelers on balance bikes) and riders over 40. From age 3 onwards, kids can ride the track once they can confidently ride a pedal bike."
+        },
+        {
+          "question": "How do age groups work?",
+          "answer": "The age you turn during the calendar year sets your class for the entire year. Mini Wheelers is 2-7yo on balance bikes. Sprockets is split into 5-and-under, 6 sprockets and 7 sprockets. Challenge class is 8 and up, divided by gender. Mini Wheelers and Sprockets aren't timed and earn participation awards. Challenge class riders must have a transponder, are timed, and have podium placings."
         },
         {
           "question": "Where is the Eagles Nest?",
@@ -31,6 +49,10 @@
         {
           "question": "Is the track open to the public?",
           "answer": "Yes — our facility is open to the public, welcoming both seasoned riders and those just starting out. Coaching, gate nights and races are members-only events, but anyone can come and ride the track outside scheduled events."
+        },
+        {
+          "question": "I'm nervous about my first session. What should I expect?",
+          "answer": "Everyone started somewhere — what makes BMX great is that everyone helps each other. Show up, introduce yourself at the canteen, and one of the committee or coaches will get you sorted. You won't be the only first-timer."
         }
       ]
     },
@@ -39,102 +61,136 @@
       "icon": "📋",
       "questions": [
         {
-          "question": "How do I get an AUS Cycling licence?",
-          "answer": "Sign up online via Revolutionise Sport at revolutionise.com.au/maroondahbmxc/registration. Choose 'Maroondah BMX Club' as your affiliated club. The whole process takes about 10 minutes. We can help walk you through it at the canteen if you get stuck."
+          "question": "How do I get an AusCycling licence?",
+          "answer": "Sign up online at auscycling.org.au/become-a-member. AusCycling offers a 4-week free trial — no payment needed initially. After the trial, choose a yearly membership appropriate for your age and level."
         },
         {
-          "question": "How much does an AUS Cycling licence cost?",
-          "answer": "Yearly memberships start at $100, depending on age — there are different rates for juniors, adults and casual riders. The first 4 weeks of riding are free of charge before you need to commit. Check auscycling.org.au for current pricing."
+          "question": "How much does an AusCycling licence cost?",
+          "answer": "AusCycling offers different membership levels for different ages and abilities. Check auscycling.org.au/become-a-member for current pricing — there's a 4-week free trial first, then yearly memberships scale by age and racing level."
         },
         {
-          "question": "Why do I need an AUS Cycling licence?",
-          "answer": "It's mandatory to participate in all events — club coaching, gate nights, and races on any track in Australia. Crucially, it also provides your insurance coverage when riding. By choosing Maroondah BMX as your affiliated club, you're covered for all club-aligned activities."
+          "question": "Why do I need an AusCycling licence?",
+          "answer": "It's mandatory for all coaching sessions, gate nights and racing. It also provides your insurance coverage when riding. Without it, you can't take the track for any club activity."
         },
         {
-          "question": "I already have an AUS Cycling licence with another club — can I still ride here?",
-          "answer": "Yes. Gate nights welcome all AUS Cycling members regardless of which club you're affiliated with — any club, any track."
+          "question": "What's EntryBoss and do I need an account?",
+          "answer": "EntryBoss (entryboss.cc) is the online booking system used for almost all coaching sessions, gate nights, club races and bigger events. Create an account, link your AusCycling membership number, and you can book everything from one place. Each event listing includes terms — entry open/close, scratching cutoff, etc."
         },
         {
-          "question": "What's revSPORT and do I need it?",
-          "answer": "revSPORT (revolutionise.com.au) is the platform you sign up through. The 'membership' there is for the registration system itself — you become an actual AUS Cycling member through the same process. Use the participant's name and date of birth (not the parent's) when registering a child."
+          "question": "What does \"scratching\" mean?",
+          "answer": "Scratching is withdrawing from an event. If you scratch before the cutoff time listed on EntryBoss, you're removed from the start list and automatically refunded. Scratch after the cutoff and the entry stands."
+        },
+        {
+          "question": "I already have an AusCycling licence with another club — can I still ride here?",
+          "answer": "Yes. Gate nights welcome all AusCycling members regardless of which club you're affiliated with. Same goes for many coaching sessions — check the EntryBoss listing."
         }
       ]
     },
     {
-      "name": "Costs & Memberships",
-      "icon": "💰",
+      "name": "Coaching",
+      "icon": "🏋️",
       "questions": [
         {
-          "question": "How much does Gate Night cost?",
-          "answer": "$3 per rider for AUS Cycling members. Your first 4 weeks are free if you're new to the club."
+          "question": "When are coaching sessions?",
+          "answer": "We currently run coaching three nights a week. **Monday nights** with Dane from 646 Coaching (beginner + intermediate/advanced sessions). **Tuesday nights** with Connor (Mini Wheelers, Beginners, Intermediates). **Thursday nights** with ex-Olympian and Superclass rider Bodi Turner (Mini Wheelers, Beginners, Advanced — note: advanced not suitable for Sprockets)."
         },
         {
-          "question": "How much is coaching?",
-          "answer": "Your first coaching session is free once you have your AUS Cycling membership. After that, sessions range from $5 to $20 per week depending on the stream (Mini-Wheelers, Beginner or Intermediate)."
+          "question": "How do I book a coaching session?",
+          "answer": "All coaching sessions are booked through EntryBoss. Booking links are shared on our Facebook and Instagram pages each week. There's no ongoing commitment — book week to week as it suits you."
         },
         {
-          "question": "What's the total cost to get started?",
-          "answer": "Minimum to start riding regularly: 4 free weeks of trial, then about $100/year for an AUS Cycling licence (age-dependent), plus $3 per gate night and $5-$20 per coaching session you want to attend. Bike and gear are extra — talk to us about second-hand options if budget is tight."
+          "question": "What if I'm new and don't have a bike or helmet yet?",
+          "answer": "We have limited gear available for first-time riders to borrow for their first 4 sessions. Contact us beforehand to check we have the right size bike and helmet for you."
         },
         {
-          "question": "What's included in club membership?",
-          "answer": "Track access, gate night participation, Wednesday all-abilities coaching, club racing events, member-only events and the Eagles community. Talk to us at the canteen for current membership rates."
+          "question": "Which coaching session should I book?",
+          "answer": "Mini Wheelers (2-7yo on balance bikes) — Tuesday with Connor or Thursday with Bodi. Beginners — Monday with Dane, Tuesday with Connor, or Thursday with Bodi. Intermediates — Monday with Dane or Tuesday with Connor. Advanced — Monday with Dane or Thursday with Bodi (not suitable for Sprockets). When in doubt, message us on Facebook and we'll point you the right way."
+        },
+        {
+          "question": "Why coaching?",
+          "answer": "Coaching is the fastest way to improve. You'll get expert advice on bike positioning, racing skills, gate practice, endurance and fitness. For Sprockets and Mini Wheelers, sessions are fun as well as effective — a great way to start your BMX journey."
         }
       ]
     },
     {
-      "name": "Gear & What to Bring",
-      "icon": "🛡️",
+      "name": "Gate Nights",
+      "icon": "🌙",
       "questions": [
         {
-          "question": "What gear do I need to ride?",
-          "answer": "Minimum: a bike, a helmet (full-face preferred for racing, open-face fine for starting out), long sleeves and long pants at all times. Closed-toe shoes. Gloves are strongly recommended. We can sometimes lend gear to brand-new riders for their first session."
+          "question": "When is gate night?",
+          "answer": "Tuesday nights from 6:15pm at the Eagles Nest. $3 to ride. AusCycling membership required."
         },
         {
-          "question": "Do I need a BMX-specific bike?",
-          "answer": "For first-timers, any bike that fits and isn't a road bike will get you through gate night. If you decide to stick with it, you'll want a proper BMX race bike — we can advise on what to look for and where to buy."
+          "question": "What is gate night?",
+          "answer": "An open practice session where the club operates the gate for riders to practice gate starts. Great way to socialise with fellow riders and get track time on different start setups. No racing — just practice and fun."
         },
         {
-          "question": "Can I borrow a bike?",
-          "answer": "We have a small number of loan bikes for first-time riders to try out. Mention it when you arrive at gate night and we'll see what's available."
-        },
-        {
-          "question": "What's a transponder and do I need one?",
-          "answer": "A transponder is a small electronic device that times your laps during races. From age 8 you're required to race with one. You can buy them through AusCycling or My Laps online."
-        },
-        {
-          "question": "Can I get a club jersey?",
-          "answer": "Yes — once you commit, you can order a personalised club jersey from our supplier ACE1. Talk to us at the canteen and we'll point you in the right direction."
-        },
-        {
-          "question": "What number do I pick for racing?",
-          "answer": "Choose any number between 8 and 999. Numbers 1–7 are reserved for the top 8 riders of the state and country. Think carefully — this number will follow you on your BMX journey, and once it's yours and registered no one else in the state can take it."
+          "question": "Can I go to gate nights at other clubs?",
+          "answer": "Absolutely — most BMX clubs run gate nights. Check their Instagram or Facebook pages for times and details. Your AusCycling membership covers you at any AusCycling-affiliated club."
         }
       ]
     },
     {
-      "name": "Racing & Events",
+      "name": "Racing",
       "icon": "🏁",
       "questions": [
         {
-          "question": "When are races held?",
-          "answer": "Club racing happens periodically throughout the season — check our Facebook page or EntryBoss for the next race calendar. Gate nights every Tuesday are practice/training rather than racing. We also host the popular Track Attack and AusCycling State Series events."
+          "question": "How do I enter my first race?",
+          "answer": "Once you have an AusCycling licence, watch our Facebook and Instagram for upcoming \"clubbie\" race days — these are 1.5-2 hour club races with smaller numbers, perfect for first-timers. Entries go through EntryBoss."
+        },
+        {
+          "question": "What types of races are there?",
+          "answer": "Club races (\"clubbies\") run by various clubs around Victoria on Friday nights, Saturdays and Sundays — smaller and shorter. State Series and State Championships are bigger open events with riders from across Victoria. National events are the highest level — multiple days, hundreds of riders, including Superclass."
+        },
+        {
+          "question": "How does race format work?",
+          "answer": "Every race day consists of 3 motos (qualifying races) plus finals for Challenge class. Mini Wheelers and Sprockets do 4 motos with no finals. Time between motos varies — 15-60 minutes depending on the event. It's up to riders to know when their race is — the gate doesn't wait."
+        },
+        {
+          "question": "What's staging?",
+          "answer": "Staging is the holding area near the start hill. Officials call up age groups race by race — listen for your name and race number so you don't miss your race. When in doubt, ask anyone wearing club colours."
+        },
+        {
+          "question": "How do I follow the race day?",
+          "answer": "Use Squorz at our.squorz.com — it lists the running order, which moto you're in, your lane assignment, all live timing, and final placings. It's the central source of truth for every race day."
+        },
+        {
+          "question": "What about race plate numbers and colours?",
+          "answer": "Choose any number between 8 and 999 — numbers 1-7 are reserved for the top 8 riders of the state and country. The plate background colour depends on your age and class — see the AusCycling Race Plate Guide. Most of our riders order plates from MAC Plates, who have our club logo on file so you can represent the club. They send a proof before printing."
+        },
+        {
+          "question": "What's a transponder?",
+          "answer": "A small electronic device attached to the front fork of your bike that tracks your race progress. Required for all races except Mini Wheelers and Sprockets — i.e. from Challenge class age 8 and up. Buy a ProChip FLEX from AusCycling or My Laps online (subscription, 1 or 2 year). You must register it with your AusCycling membership AND activate it through the My Laps Flex Manager before racing."
         },
         {
           "question": "Can my child race at other clubs?",
-          "answer": "Absolutely — that's the point of an AUS Cycling licence. They can race at any AUS Cycling-affiliated BMX track in Australia."
+          "answer": "Yes — that's the point of an AusCycling licence. They can race at any AusCycling-affiliated BMX track in Australia."
+        }
+      ]
+    },
+    {
+      "name": "Gear & Bikes",
+      "icon": "🛡️",
+      "questions": [
+        {
+          "question": "What protective gear do I need?",
+          "answer": "Compulsory for all coaching and racing: full-face helmet, gloves, full-length top, full-length pants, closed-toe shoes. Optional extras: under-clothing body armour and goggles. Open-face helmets are not allowed for coaching or racing."
         },
         {
-          "question": "How do I enter a race?",
-          "answer": "Most races run through EntryBoss (entryboss.cc/calendar/maroondahbmx). Once you have an AUS Cycling licence, you can register for any open event."
+          "question": "Where should I buy gear?",
+          "answer": "We recommend Yarra Valley Cycles in Lilydale — they have a great range for kids and adults, and they know what works for BMX. Plenty of online options too, but it's worth getting properly sized in person for your first set."
         },
         {
-          "question": "What events does the club host?",
-          "answer": "We run the Track Attack series, host AusCycling State Series rounds, plus regular club racing throughout the season. Tuesday gate nights are weekly. Our calendar is on EntryBoss."
+          "question": "Can I borrow gear for my first sessions?",
+          "answer": "Yes — we have limited loan gear (bikes and helmets) for first-time riders to use for their first 4 sessions. Contact us beforehand so we can check sizing."
         },
         {
-          "question": "Has the club produced any top riders?",
-          "answer": "Yes — we've sent kids as young as 9 to the World Championships and produced top-8 Australian and Victorian riders. The Turner brothers have been with the club for over 25 years and competed at the highest levels. The track and coaches have a strong pedigree."
+          "question": "What kind of bike do I need?",
+          "answer": "A proper BMX race bike, sized to the rider. Bike sizes are based on rider height — see the Lux BMX Race BMX Bike Buyers Guide for a rough guide. Yarra Valley Cycles can measure you up in person."
+        },
+        {
+          "question": "Where should I buy a BMX bike?",
+          "answer": "Great places for a first bike: Facebook Marketplace, race-day buy/swap/sell, BMX-specific buy/swap/sell groups, or talk to club members at the canteen — there's almost always someone selling. For new bikes, head to Yarra Valley Cycles. We're always happy to help advise."
         }
       ]
     },
@@ -148,19 +204,27 @@
         },
         {
           "question": "What's the Pro Gate?",
-          "answer": "It's the state-of-the-art starting gate system installed during our recent track upgrade. It's safer, more reliable and provides a professional racing experience. The whole track was transformed during our 2024-25 closure thanks to a generous contribution from Maroondah City Council and a huge fundraising effort by our committee and volunteers."
+          "answer": "It's the state-of-the-art starting gate system installed during our recent track upgrade. Safer, more reliable and provides a professional racing experience. The whole track was transformed during our 2024-25 closure thanks to a contribution from Maroondah City Council and a huge fundraising effort by our committee and volunteers."
+        },
+        {
+          "question": "Has the club produced any top riders?",
+          "answer": "Yes — we've sent kids as young as 9 to the World Championships and produced top-8 Australian and Victorian riders. Bodi Turner — one of our coaches — is an ex-Olympian and Superclass rider. The track and coaches have a strong pedigree."
         },
         {
           "question": "Who runs the club?",
-          "answer": "We're a volunteer-run, member-owned club. Committee members are all parents, riders and ex-riders who do this for love of the sport. If you'd like to get involved, talk to us at the canteen."
+          "answer": "We're a volunteer-run, member-owned club. The committee are all parents, riders and ex-riders who do this for love of the sport. If you'd like to get involved, talk to anyone at the canteen."
         },
         {
           "question": "How can I volunteer or help out?",
-          "answer": "Easiest way is to come along regularly and chat with the committee. We always need hands for canteen, race-day setup, coaching support and event running. Even an hour a month makes a difference. Like all club events, gate nights only operate with the help of volunteers."
+          "answer": "Easiest way is to come along regularly and chat with the committee. We always need hands for canteen, race-day setup, coaching support, fundraising and event running. Even an hour a month makes a difference."
         },
         {
           "question": "Can my business sponsor the club?",
           "answer": "Yes — we love local sponsors. We have packages that give your business visibility with a passionate audience while helping us maintain the track, programs and community. Email eastfieldeagles@gmail.com to talk about it."
+        },
+        {
+          "question": "Where can I follow the club online?",
+          "answer": "Instagram @eastfieldbmxclub, Facebook @MaroondahBMXClub, and there's a private Eagles Nest Facebook group for current members. Most race-day updates, booking links and announcements go through our socials first."
         }
       ]
     }
