@@ -681,7 +681,22 @@
     const re = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
     return esc(text).replace(re, '<mark>$1</mark>');
   }
-
+function linkify(text) {
+    // Convert [label](url) markdown links first
+    text = text.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, (m, label, url) =>
+      `<a href="${url}" target="_blank" rel="noopener">${label}</a>`
+    );
+    // Then convert plain URLs that aren't already inside an href
+    text = text.replace(/(^|[^"'>])(https?:\/\/[^\s<]+)/g, (m, pre, url) =>
+      `${pre}<a href="${url}" target="_blank" rel="noopener">${url}</a>`
+    );
+    // Also catch bare domains like auscycling.org.au/path
+    text = text.replace(/(^|[\s(])(www\.[^\s<]+|[a-z0-9-]+\.(?:com\.au|org\.au|com|org|net)(?:\/[^\s<]*)?)/gi, (m, pre, url) => {
+      const href = url.startsWith('http') ? url : 'https://' + url;
+      return `${pre}<a href="${href}" target="_blank" rel="noopener">${url}</a>`;
+    });
+    return text;
+  }
   // ===== State =====
   let faqData = null;
   let chatView = 'home'; // 'home' | 'category' | 'answer' | 'search'
@@ -718,7 +733,7 @@
                 <span class="faq-q-text">${highlight(q.question, query)}</span>
                 <span class="faq-q-icon">+</span>
               </div>
-              <div class="faq-a">${highlight(q.answer, query).replace(/\n/g, '<br>')}</div>
+              <div class="faq-a">${linkify(highlight(q.answer, query)).replace(/\n/g, '<br>')}</div>
             </div>
           `).join('')}
         </div>
