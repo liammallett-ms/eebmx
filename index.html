@@ -1516,7 +1516,19 @@ function dismissIntro() {
     const re = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
     return esc(text).replace(re, '<mark>$1</mark>');
   }
-
+function linkify(text) {
+    text = text.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, (m, label, url) =>
+      `<a href="${url}" target="_blank" rel="noopener">${label}</a>`
+    );
+    text = text.replace(/(^|[^"'>])(https?:\/\/[^\s<]+)/g, (m, pre, url) =>
+      `${pre}<a href="${url}" target="_blank" rel="noopener">${url}</a>`
+    );
+    text = text.replace(/(^|[\s(])(www\.[^\s<]+|[a-z0-9-]+\.(?:com\.au|org\.au|com|org|net)(?:\/[^\s<]*)?)/gi, (m, pre, url) => {
+      const href = url.startsWith('http') ? url : 'https://' + url;
+      return `${pre}<a href="${href}" target="_blank" rel="noopener">${url}</a>`;
+    });
+    return text;
+  }
   function renderChat() {
     const body = $('chatBody');
     body.innerHTML = '';
@@ -1573,7 +1585,7 @@ function dismissIntro() {
       body.appendChild(userBubble);
       const ans = document.createElement('div');
       ans.className = 'chat-bubble bot';
-      ans.innerHTML = esc(q.answer).replace(/\n/g, '<br>');
+      ans.innerHTML = linkify(esc(q.answer)).replace(/\n/g, '<br>');
       body.appendChild(ans);
       if (cat.questions.length > 1) {
         const suggest = document.createElement('div');
