@@ -4,44 +4,28 @@
   "heading_accent": "on this week",
   "items": [
     {
-      "day": "Monday Coaching -- ",
-      "title": "Coaching with Dane",
-      "time": "5:00 Beginners - 6:00 Intermediate and Advanced",
-      "description": "Inclusive coaching for riders of all abilities. Welcoming, supportive and 100% focused on having fun on the bike.",
-      "cost_amount": "$5-20",
-      "cost_unit": "per rider"
-    },
-    {
       "day": "Tuesday Nights",
       "title": "Gate Night",
-      "time": "6:00pm – 7:30pm",
-      "description": "Open practice on the Pro Gate. All AUS Cycling members welcome — any club, any track. Canteen open.",
-      "cost_amount": "$5",
+      "time": "From 6:15pm",
+      "description": "Open practice on the Pro Gate. Great for working on starts, getting track time and meeting other riders. AusCycling membership required — any club, any track. Canteen open.",
+      "cost_amount": "$3",
       "cost_unit": "per rider"
     },
     {
-      "day": "Tuesday Coaching",
-      "title": "Coaching with Connor",
-      "time": "4:00pm Mini · 4:30 Beginner · 5:15 Intermediate",
-      "description": "Structured coaching across three skill streams. Mini-wheelers, beginners and intermediates ride before the gates open.",
-      "cost_amount": "$5–$20",
-      "cost_unit": "per session"
+      "day": "Mon · Tue · Thu",
+      "title": "Coaching Nights",
+      "time": "Connor (Tue) · Dane (Mon) · Bodi (Thu)",
+      "description": "Three nights of structured coaching across all levels — Mini Wheelers, Beginners, Intermediates and Advanced. Book week-to-week through EntryBoss. AusCycling membership required.",
+      "cost_amount": "Per session",
+      "cost_unit": "via EntryBoss"
     },
     {
-      "day": "Thursday Coaching",
-      "title": "Thursday Coaching with Bodi",
-      "time": "4:30 Onwards",
-      "cost_amount": "$5 - $20",
-      "cost_unit": "per rider",
-      "description": "Coaching with Olympian Bodi Turner. Coaching for all ages from Beginner to Advanced"
-    },
-    {
-      "day": "Racing",
-      "title": "Eastfield vs Lilydale Round 1",
-      "time": "9am Practice - 10:30 Racing",
-      "description": "Round 1 of the Eastfield vs Lilydale Series",
-      "cost_amount": "$75 Series - $20 Race Only",
-      "cost_unit": ","
+      "day": "All Year",
+      "title": "Race Days",
+      "time": "Clubbies · State Series · Nationals",
+      "description": "From small club races (1.5-2hr) to big State and National events with 400+ riders. Perfect for first-timers and seasoned racers. Watch our socials for upcoming dates.",
+      "cost_amount": "EntryBoss",
+      "cost_unit": "to book"
     }
   ]
 }
