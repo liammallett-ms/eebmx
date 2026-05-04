@@ -1,12 +1,12 @@
 {
+  "chat_unanswered_message": "I don't have an answer for that one. Email us at eastfieldeagles@gmail.com or message us on Facebook/Instagram and we'll get back to you.",
   "page_title": "Frequently Asked Questions",
   "page_subtitle": "Everything you need to know about racing, coaching, gear and gate nights at the Eagles Nest.",
-  "search_placeholder": "Search questions…",
-  "no_results_text": "No questions matched. Try different words, or email us at eastfieldeagles@gmail.com.",
   "chat_button_label": "Got questions?",
+  "no_results_text": "No questions matched. Try different words, or email us at eastfieldeagles@gmail.com.",
   "chat_panel_title": "Eagles FAQ Bot",
   "chat_panel_subtitle": "Tap a topic or search to find answers.",
-  "chat_unanswered_message": "I don't have an answer for that one. Email us at eastfieldeagles@gmail.com or message us on Facebook/Instagram and we'll get back to you.",
+  "search_placeholder": "Search questions…",
   "categories": [
     {
       "name": "BMX Basics",
@@ -156,7 +156,7 @@
         },
         {
           "question": "What about race plate numbers and colours?",
-          "answer": "Choose any number between 8 and 999 — numbers 1-7 are reserved for the top 8 riders of the state and country. The plate background colour depends on your age and class — see the AusCycling Race Plate Guide. Most of our riders order plates from MAC Plates, who have our club logo on file so you can represent the club. They send a proof before printing."
+          "answer": "Choose any number between 8 and 999 — numbers 1-7 are reserved for the top 8 riders of the state and country.\n\nPlate colours by class:\n- Mini Wheeler (under 8) — Purple plate, white numbers\n- Sprocket Rocket (under 8) — Orange plate, black numbers\n- Challenge Novice (8+) — Green plate, white numbers\n- Male Superclass / Junior Superclass / Challenge (8+) — Yellow plate, black numbers\n- Female Superclass / Junior Superclass / Challenge Female (8+) — Blue plate, white numbers\n- Cruiser (all classes, 8+) — Red plate, white numbers\n- UCI Junior Elite (17-18) — Black plate, white numbers\n- UCI Senior Elite (19+) — White plate, black numbers\n\nMost of our riders order plates from MAC Plates at https://www.mac-components.com/product-page/mac-club-plates — they have our club logo on file so you can represent the Eagles when you ride. They'll send a proof before printing."
         },
         {
           "question": "What's a transponder?",
