@@ -482,10 +482,10 @@
   }
   .img-frame iframe {
     position: absolute;
-    top: -60px;
-    left: 0;
-    width: 100%;
-    height: calc(100% + 120px);
+    top: -100px;
+    left: -10%;
+    width: 120%;
+    height: calc(100% + 200px);
     border: 0;
     display: block;
     pointer-events: auto;
@@ -1191,8 +1191,7 @@ $('aboutStats').innerHTML = c.about.stats.map(s => `
       </div>
     `).join('');
 
-    // Events`
-
+  
     // Events
     $('eventsEyebrow').textContent = c.events.eyebrow;
     $('eventsHeading').innerHTML = `${esc(c.events.heading_main)} <span class="accent">${esc(c.events.heading_accent)}</span>`;
