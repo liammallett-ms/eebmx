@@ -691,7 +691,7 @@ function linkify(text) {
       `${pre}<a href="${url}" target="_blank" rel="noopener">${url}</a>`
     );
     // Also catch bare domains like auscycling.org.au/path
-    text = text.replace(/(^|[\s(])(www\.[^\s<]+|[a-z0-9-]+\.(?:com\.au|org\.au|com|org|net)(?:\/[^\s<]*)?)/gi, (m, pre, url) => {
+    text = text.replace(/(^|[\s(])(www\.[^\s<]+|[a-z0-9-]+\.(?:com\.au|org\.au|com|org|net|cc|gov|au)(?:\/[^\s<]*)?)/gi, (m, pre, url) => {
       const href = url.startsWith('http') ? url : 'https://' + url;
       return `${pre}<a href="${href}" target="_blank" rel="noopener">${url}</a>`;
     });
