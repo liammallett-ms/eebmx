@@ -8,7 +8,7 @@
       "title": "Gate Night",
       "time": "From 6:15pm",
       "description": "Open practice on the Pro Gate. Great for working on starts, getting track time and meeting other riders. AusCycling membership required — any club, any track. Canteen open.",
-      "cost_amount": "$3",
+      "cost_amount": "$5",
       "cost_unit": "per rider"
     },
     {
@@ -24,8 +24,8 @@
       "title": "Race Days",
       "time": "Clubbies · State Series · Nationals",
       "description": "From small club races (1.5-2hr) to big State and National events with 400+ riders. Perfect for first-timers and seasoned racers. Watch our socials for upcoming dates.",
-      "cost_amount": "EntryBoss",
-      "cost_unit": "to book"
+      "cost_amount": "Per race",
+      "cost_unit": "Via entryboss"
     }
   ]
 }
