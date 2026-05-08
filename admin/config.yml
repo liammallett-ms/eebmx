@@ -167,8 +167,8 @@ collections:
           - { label: "Secondary Button — Link", name: "secondary_cta_url", widget: "string" }
 
 
-      # ------ Coaching -------
-        - name: "coaching"
+      # ---- Coaching ----
+      - name: "coaching"
         label: "🎓 Coaching Page"
         file: "content/coaching.json"
         fields:
@@ -192,11 +192,7 @@ collections:
               - { label: "Accent colour", name: "accent_color", widget: "select", options: ["green", "purple", "gold"], default: "green", hint: "Sets the highlight colour for this coach" }
               - { label: "Booking URL", name: "booking_url", widget: "string", required: false, hint: "Link to TryBooking, EntryBoss, etc." }
               - { label: "Booking button label", name: "booking_label", widget: "string", required: false, default: "Book now" }
-          - label: "Homepage teaser — section shown on the main page"
-            name: "homepage_teaser_eyebrow"
-            widget: "string"
-            default: "Coaching"
-            hint: "Small label above the homepage teaser heading"
+          - { label: "Homepage teaser — eyebrow label", name: "homepage_teaser_eyebrow", widget: "string", default: "Coaching", hint: "Small label above the homepage teaser heading" }
           - { label: "Homepage teaser — heading main", name: "homepage_teaser_heading_main", widget: "string" }
           - { label: "Homepage teaser — heading accent (green)", name: "homepage_teaser_heading_accent", widget: "string" }
           - { label: "Homepage teaser — body text", name: "homepage_teaser_body", widget: "text" }
