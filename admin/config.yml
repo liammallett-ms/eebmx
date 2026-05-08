@@ -166,6 +166,47 @@ collections:
           - { label: "Secondary Button — Label", name: "secondary_cta_label", widget: "string" }
           - { label: "Secondary Button — Link", name: "secondary_cta_url", widget: "string" }
 
+
+      # ------ Coaching -------
+        - name: "coaching"
+        label: "🎓 Coaching Page"
+        file: "content/coaching.json"
+        fields:
+          - { label: "Page title (used in nav and headings)", name: "page_title", widget: "string", default: "Coaching" }
+          - { label: "Page subtitle (shown under the big title)", name: "page_subtitle", widget: "string", default: "Train with the best" }
+          - { label: "Intro heading — main", name: "intro_heading_main", widget: "string" }
+          - { label: "Intro heading — accent (purple)", name: "intro_heading_accent", widget: "string" }
+          - { label: "Intro body text", name: "intro_body", widget: "text", hint: "Use blank lines to separate paragraphs" }
+          - label: "Coaches"
+            name: "coaches"
+            widget: "list"
+            hint: "Add, remove, or reorder coaches. Each coach gets a card on the page."
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Organisation or title (optional)", name: "organisation", widget: "string", required: false, hint: "e.g. '646 Coaching' or 'Olympian'" }
+              - { label: "Day", name: "day", widget: "string", hint: "e.g. 'Mondays'" }
+              - { label: "Tagline (one-line description)", name: "tagline", widget: "string", hint: "Shown in the accent colour above the bio" }
+              - { label: "Bio", name: "bio", widget: "text", hint: "Full bio. Use blank lines for paragraph breaks." }
+              - { label: "Photo", name: "image", widget: "image", required: false, hint: "Square photo (600x600+ recommended). Leave blank for placeholder." }
+              - { label: "Photo placeholder label", name: "image_label", widget: "string", required: false, hint: "Shown if no photo is uploaded" }
+              - { label: "Accent colour", name: "accent_color", widget: "select", options: ["green", "purple", "gold"], default: "green", hint: "Sets the highlight colour for this coach" }
+              - { label: "Booking URL", name: "booking_url", widget: "string", required: false, hint: "Link to TryBooking, EntryBoss, etc." }
+              - { label: "Booking button label", name: "booking_label", widget: "string", required: false, default: "Book now" }
+          - label: "Homepage teaser — section shown on the main page"
+            name: "homepage_teaser_eyebrow"
+            widget: "string"
+            default: "Coaching"
+            hint: "Small label above the homepage teaser heading"
+          - { label: "Homepage teaser — heading main", name: "homepage_teaser_heading_main", widget: "string" }
+          - { label: "Homepage teaser — heading accent (green)", name: "homepage_teaser_heading_accent", widget: "string" }
+          - { label: "Homepage teaser — body text", name: "homepage_teaser_body", widget: "text" }
+          - { label: "Homepage teaser — button label", name: "homepage_teaser_cta_label", widget: "string", default: "Meet our coaches" }
+          - { label: "Homepage teaser — button URL", name: "homepage_teaser_cta_url", widget: "string", default: "/coaching.html" }
+          - { label: "Bottom CTA — heading", name: "bottom_cta_heading", widget: "string", default: "GOT QUESTIONS?" }
+          - { label: "Bottom CTA — body text", name: "bottom_cta_body", widget: "text" }
+          - { label: "Bottom CTA — button label", name: "bottom_cta_label", widget: "string", default: "Visit the FAQ" }
+          - { label: "Bottom CTA — button URL", name: "bottom_cta_url", widget: "string", default: "/faq.html" }
+ 
       # ---- 8. Footer ----
       - name: "footer"
         label: "🦅 Footer — bottom of page"
