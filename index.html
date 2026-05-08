@@ -769,7 +769,100 @@
     border: none;
     border-radius: 0;
   }
-
+/* Coaching teaser */
+  .coaching-teaser {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    background:
+      radial-gradient(ellipse at top left, rgba(0, 255, 148, 0.12), transparent 60%),
+      linear-gradient(135deg, var(--black-2) 0%, var(--black-3) 100%);
+    border-radius: 24px;
+    padding: 60px 50px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .coaching-teaser::before {
+    content: 'COACH';
+    position: absolute;
+    top: -40px;
+    left: -10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 220px;
+    line-height: 1;
+    color: rgba(0, 255, 148, 0.04);
+    pointer-events: none;
+    letter-spacing: -0.02em;
+  }
+  .coaching-teaser-text {
+    position: relative;
+  }
+  .coaching-teaser-text h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.95;
+    margin-bottom: 20px;
+  }
+  .coaching-teaser-text h2 .accent { color: var(--green); }
+  .coaching-teaser-text p {
+    color: var(--grey-2);
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .coaching-teaser-roster {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .coach-mini {
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .coach-mini:hover {
+    transform: translateY(-4px);
+    border-color: var(--green);
+  }
+  .coach-mini-day {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .coach-mini-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .coach-mini-tag {
+    font-size: 11px;
+    color: var(--grey-2);
+    line-height: 1.4;
+  }
+ 
+  @media (max-width: 900px) {
+    .coaching-teaser {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 40px 28px;
+    }
+    .coaching-teaser::before { font-size: 140px; top: -20px; }
+    .coaching-teaser-roster { gap: 10px; }
+    .coach-mini { padding: 14px 8px; }
+    .coach-mini-name { font-size: 22px; }
+    .coach-mini-tag { font-size: 10px; }
+  }
   /* Join CTA */
   .join-cta {
     background:
@@ -1004,6 +1097,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#whats-on">What's On</a></li>
       <li><a href="#gallery">Gallery</a></li>
+      <li><a href="/coaching.html">Coaching</a></li>
       <li><a href="/faq.html">FAQ</a></li>
        <li id="navShopLink" style="display:none;"><a href="/shop.html">Shop</a></li>
       <li><a href="#join" class="nav-cta">Join Now</a></li>
@@ -1080,7 +1174,20 @@
     <div class="gallery-grid" id="galleryGrid" style="margin-top: 60px;"></div>
   </section>
 </section>
-
+ <!-- Coaching teaser -->
+  <section class="section-pad" id="coaching-teaser">
+    <div class="coaching-teaser reveal">
+      <div class="coaching-teaser-text">
+        <div class="section-eyebrow" id="coachingEyebrow"></div>
+        <h2 id="coachingHeading"></h2>
+        <p id="coachingBody"></p>
+        <div class="hero-actions">
+          <a id="coachingCta" href="/coaching.html" class="btn btn-primary"><span id="coachingCtaLabel"></span> <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="coaching-teaser-roster" id="coachingRoster"></div>
+    </div>
+  </section>
    <!-- Join -->
   <section class="section-pad" id="join">
   <!-- Join -->
@@ -1285,6 +1392,25 @@ $('aboutStats').innerHTML = c.about.stats.map(s => `
       </div>
     `).join('');
 
+    // Coaching teaser
+    if (c.coaching) {
+      $('coachingEyebrow').textContent = c.coaching.homepage_teaser_eyebrow || 'Coaching';
+      $('coachingHeading').innerHTML = esc(c.coaching.homepage_teaser_heading_main || '') + ' <span class="accent">' + esc(c.coaching.homepage_teaser_heading_accent || '') + '</span>';
+      $('coachingBody').textContent = c.coaching.homepage_teaser_body || '';
+      $('coachingCta').href = c.coaching.homepage_teaser_cta_url || '/coaching.html';
+      $('coachingCtaLabel').textContent = c.coaching.homepage_teaser_cta_label || 'Meet our coaches';
+      const roster = $('coachingRoster');
+      roster.innerHTML = '';
+      (c.coaching.coaches || []).forEach(coach => {
+        const div = document.createElement('div');
+        div.className = 'coach-mini';
+        div.innerHTML =
+          '<div class="coach-mini-day">' + esc(coach.day || '') + '</div>' +
+          '<div class="coach-mini-name">' + esc(coach.name || '') + '</div>' +
+          '<div class="coach-mini-tag">' + esc(coach.tagline || '') + '</div>';
+        roster.appendChild(div);
+      });
+    }
     // Gallery
     $('galleryEyebrow').textContent = c.gallery.eyebrow;
     $('galleryHeading').innerHTML = `${esc(c.gallery.heading_main)} <span class="accent">${esc(c.gallery.heading_accent)}</span>`;
@@ -1348,7 +1474,7 @@ $('aboutStats').innerHTML = c.about.stats.map(s => `
     let content;
     try {
       // Fetch all content files in parallel
-      const sections = ['site', 'hero', 'ticker', 'about', 'events', 'gallery', 'instagram', 'join', 'footer'];
+      const sections = ['site', 'hero', 'ticker', 'about', 'events', 'gallery', 'instagram', 'join', 'footer', 'coaching'];
       const cacheBust = '?t=' + Date.now();
       const responses = await Promise.all(
         sections.map(s => fetch(`content/${s}.json${cacheBust}`).then(r => {
