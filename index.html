@@ -1182,7 +1182,14 @@
       aboutImg.classList.remove('has-video', 'has-image');
       aboutImg.innerHTML = `<span class="img-label">${esc(c.about.image_label || '')}</span>`;
     }
-    $('aboutStats').innerHTML = c.about.stats.map(s => `
+$('aboutStats').innerHTML = c.about.stats.map(s => `
+      <div class="stat">
+        <div class="stat-num">${esc(s.number)}</div>
+        <div class="stat-label">${esc(s.label)}</div>
+      </div>
+    `).join('');
+
+    // Events`
 
     // Events
     $('eventsEyebrow').textContent = c.events.eyebrow;
