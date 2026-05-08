@@ -490,6 +490,34 @@
     display: block;
     pointer-events: auto;
   }
+  .video-unmute {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s;
+    padding: 0;
+  }
+  .video-unmute:hover {
+    background: rgba(0, 255, 148, 0.9);
+    color: var(--black);
+    border-color: var(--green);
+  }
+  .video-unmute.unmuted {
+    display: none;
+  }
   .img-frame img {
     position: absolute;
     inset: 0;
@@ -1118,6 +1146,49 @@
     }
     return null;
   }
+  let aboutVideoPlayer = null;
+  let videoApiLoaded = false;
+
+  function setupVideoUnmuteControl() {
+    // Load the YouTube IFrame API once
+    if (!videoApiLoaded) {
+      videoApiLoaded = true;
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(tag);
+      window.onYouTubeIframeAPIReady = createAboutPlayer;
+    } else if (window.YT && window.YT.Player) {
+      // API already loaded from previous render
+      createAboutPlayer();
+    }
+  }
+
+  function createAboutPlayer() {
+    if (!document.getElementById('aboutVideoFrame')) return;
+    aboutVideoPlayer = new YT.Player('aboutVideoFrame', {
+      events: {
+        'onReady': () => {
+          const btn = document.getElementById('aboutUnmute');
+          const icon = document.getElementById('aboutUnmuteIcon');
+          if (!btn) return;
+          btn.addEventListener('click', () => {
+            if (aboutVideoPlayer.isMuted()) {
+              aboutVideoPlayer.unMute();
+              aboutVideoPlayer.setVolume(80);
+              icon.textContent = '🔊';
+              btn.title = 'Mute';
+              btn.setAttribute('aria-label', 'Mute video');
+            } else {
+              aboutVideoPlayer.mute();
+              icon.textContent = '🔇';
+              btn.title = 'Unmute';
+              btn.setAttribute('aria-label', 'Unmute video');
+            }
+          });
+        }
+      }
+    });
+  }
   // Convert **bold** markdown markers to <strong>
   function bold(str) {
     return (str || '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
@@ -1175,7 +1246,16 @@
     if (videoId) {
       aboutImg.classList.add('has-video');
       aboutImg.classList.remove('has-image');
-      aboutImg.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=${videoId}" title="About the Eastfield Eagles" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>`;
+      aboutImg.innerHTML =
+        '<iframe id="aboutVideoFrame" src="https://www.youtube-nocookie.com/embed/' + videoId +
+        '?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=' + videoId +
+        '&enablejsapi=1&controls=0" ' +
+        'title="About the Eastfield Eagles" ' +
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+        'allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>' +
+        '<button class="video-unmute" id="aboutUnmute" aria-label="Unmute video" title="Unmute"><span id="aboutUnmuteIcon">🔇</span></button>';
+      // Init the YouTube API control once
+      setupVideoUnmuteControl();
     } else if (c.about.image) {
       aboutImg.classList.remove('has-video');
       aboutImg.classList.add('has-image');
