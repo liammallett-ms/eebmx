@@ -1644,7 +1644,7 @@ function linkify(text) {
     text = text.replace(/(^|[^"'>])(https?:\/\/[^\s<]+)/g, (m, pre, url) =>
       `${pre}<a href="${url}" target="_blank" rel="noopener">${url}</a>`
     );
-    text = text.replace(/(^|[\s(])(www\.[^\s<]+|[a-z0-9-]+\.(?:com\.au|org\.au|com|org|net|cc|gov|io|au)(?:\/[^\s<]*)?)/gi, (m, pre, url) => {
+    text = text.replace(/(^|[\s(])(www\.[^\s<]+|[a-z0-9-]+\.(?:com\.au|org\.au|com|org|net|cc|gov|io)(?:\/[^\s<]*)?)/gi, (m, pre, url) => {
       const href = url.startsWith('http') ? url : 'https://' + url;
       return `${pre}<a href="${href}" target="_blank" rel="noopener">${url}</a>`;
     });
