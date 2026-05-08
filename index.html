@@ -477,6 +477,17 @@
     align-items: center;
     justify-content: center;
   }
+  .img-frame.has-video {
+    aspect-ratio: 16 / 9;
+  }
+  .img-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
   .img-frame img {
     position: absolute;
     inset: 0;
@@ -1087,6 +1098,24 @@
   // ===== Tiny render helpers =====
   const $ = (id) => document.getElementById(id);
 
+  // Extract YouTube video ID from various URL formats
+  function extractYouTubeId(url) {
+    if (!url) return null;
+    const trimmed = url.trim();
+    if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) return trimmed;
+    const patterns = [
+      /youtu\.be\/([a-zA-Z0-9_-]{11})/,
+      /youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})/,
+      /youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/,
+      /youtube\.com\/v\/([a-zA-Z0-9_-]{11})/,
+      /youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/
+    ];
+    for (const pattern of patterns) {
+      const match = trimmed.match(pattern);
+      if (match) return match[1];
+    }
+    return null;
+  }
   // Convert **bold** markdown markers to <strong>
   function bold(str) {
     return (str || '').replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
@@ -1139,18 +1168,21 @@
     $('aboutHeading').innerHTML = `${esc(c.about.heading_main)} <span class="accent">${esc(c.about.heading_accent)}</span>`;
     $('aboutParagraphs').innerHTML = c.about.paragraphs.map(p => `<p>${safeBold(p)}</p>`).join('');
     const aboutImg = $('aboutImage');
-    if (c.about.image) {
+    const videoUrl = (c.about.video_url || '').trim();
+    const videoId = videoUrl ? extractYouTubeId(videoUrl) : null;
+    if (videoId) {
+      aboutImg.classList.add('has-video');
+      aboutImg.classList.remove('has-image');
+      aboutImg.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=${videoId}" title="About the Eastfield Eagles" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>`;
+    } else if (c.about.image) {
+      aboutImg.classList.remove('has-video');
       aboutImg.classList.add('has-image');
       aboutImg.innerHTML = `<img src="${esc(c.about.image)}" alt="${esc(c.about.image_label || '')}">`;
     } else {
-      $('aboutImageLabel').textContent = c.about.image_label;
+      aboutImg.classList.remove('has-video', 'has-image');
+      aboutImg.innerHTML = `<span class="img-label">${esc(c.about.image_label || '')}</span>`;
     }
     $('aboutStats').innerHTML = c.about.stats.map(s => `
-      <div class="stat">
-        <div class="stat-num">${esc(s.number)}</div>
-        <div class="stat-label">${esc(s.label)}</div>
-      </div>
-    `).join('');
 
     // Events
     $('eventsEyebrow').textContent = c.events.eyebrow;
