@@ -4,10 +4,10 @@
   "heading_accent": "on this week",
   "items": [
     {
-      "day": "Tuesday Nights",
-      "title": "Gate Night",
-      "time": "From 6:15pm",
-      "description": "Open practice on the Pro Gate. Great for working on starts, getting track time and meeting other riders. AusCycling membership required — any club, any track. Canteen open.",
+      "day": "Tuesday & Sunday",
+      "title": "Gates",
+      "time": "Tuesday 6:15pm Sunday 10am",
+      "description": "Open practice on the Pro Gate. Great for working on starts, getting track time and meeting other riders. AusCycling membership required — any club, any track. Canteen open depending on numbers",
       "cost_amount": "$5",
       "cost_unit": "per rider"
     },
