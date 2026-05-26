@@ -13,8 +13,8 @@ media_folder: "uploads"
 public_folder: "/uploads"
 
 # Show the live site link in the CMS top-right
-site_url: https://eaglesbmx.pages.dev           # ← change to your real domain
-display_url: https://eaglesbmx.pages.dev        # ← change to your real domain
+site_url: https://maroondahbmxclub.com.au          # ← change to your real domain
+display_url: https://maroondahbmxclub.com.au     # ← change to your real domain
 
 collections:
   - name: "site_content"
