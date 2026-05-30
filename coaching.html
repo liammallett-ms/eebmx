@@ -9,7 +9,49 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+/* ---- Mobile responsive fixes ---- */
+@media (max-width: 900px) {
+  .page-header { padding: 110px 22px 50px; }
+  .page-title { font-size: clamp(56px, 16vw, 120px); }
 
+  /* Intro: stack heading above body */
+  .intro {
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+    padding: 30px 22px 50px;
+  }
+  .intro-heading { font-size: clamp(40px, 11vw, 64px); }
+
+  /* Coaches: each profile stacks image over text, full width */
+  .coaches-wrap { padding: 30px 22px 60px; }
+  .coaches-list { gap: 56px; }
+  .coach,
+  .coach.flip {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+    text-align: left;
+  }
+  /* Image first, text second — regardless of flip */
+  .coach .coach-image-wrap,
+  .coach.flip .coach-image-wrap { order: 1 !important; }
+  .coach .coach-content,
+  .coach.flip .coach-content { order: 2 !important; text-align: left !important; }
+
+  /* Make the coach photo fill the column instead of staying tiny */
+  .coach-image-wrap { width: 100%; max-width: 100%; }
+  .coach-image-wrap img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+@media (max-width: 560px) {
+  .coach-image-wrap img { max-height: 320px; }
+  .intro-body, .coach-content { font-size: 15px; }
+}
 <style>
   :root {
     --black: #0a0710;
