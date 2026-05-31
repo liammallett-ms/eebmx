@@ -2,135 +2,37 @@
   "page_title": "Wear the Eagles.",
   "page_subtitle": "Club tees, race jerseys and supporter gear. Pickup at the Eagles Nest or shipped Australia-wide.",
   "page_eyebrow": "Eagles Official Merch",
-  "info_banner": "**Free pickup at the Eagles Nest** on Tuesday gate nights · Standard shipping Australia-wide $10 · Race jerseys are made-to-order via ACE1 (allow 4-6 weeks) · All proceeds support the club.",
+  "info_banner": "**Free pickup at the Eagles Nest** on Tuesday gate nights · Standard shipping Australia-wide $10 · Race jerseys are made-to-order via Ace Race (allow 4-6 weeks) · All proceeds support the club.",
   "categories": [
-    "All",
-    "Tees",
-    "Race Kit",
-    "Headwear",
-    "Outerwear"
+    "All"
   ],
   "products": [
     {
-      "badge": "New",
-      "price": "$35",
+      "badge": "Race Wear",
+      "price": "$62",
       "available": true,
-      "name": "Maroondah BMX Club Tee — Black",
-      "badge_style": "new",
-      "buy_url": "https://square.link/u/3cFlJdLd",
-      "image": "/uploads/tshirt-black.png",
-      "buy_label": "Buy",
-      "description": "Classic black tee with the club logo, front and back print. Soft cotton, 100% machine washable.",
-      "price_label": "From",
-      "category": "Tees",
-      "options": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL",
-        "2XL"
-      ]
-    },
-    {
-      "badge": "New",
-      "price": "$35",
-      "available": true,
-      "name": "Maroondah BMX Club Tee — White",
-      "badge_style": "new",
-      "buy_url": "",
-      "image": "/uploads/tshirt-white.png",
-      "buy_label": "Buy",
-      "description": "Crisp white version of the club tee. Same logo, same comfy cotton, summer-friendly.",
-      "price_label": "From",
-      "category": "Tees",
-      "options": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL",
-        "2XL"
-      ]
-    },
-    {
-      "badge": "Signature",
-      "price": "$95",
-      "available": true,
-      "name": "Eastfield Eagles Race Jersey",
+      "name": "Eastfield Eagles Race Jersey - Black",
       "badge_style": "signature",
-      "buy_url": "",
+      "buy_url": "https://square.link/u/CcqjTEeM",
       "image": "/uploads/race-jersey.png",
       "buy_label": "Order",
-      "description": "Personalised long-sleeve race jersey from ACE1. Custom name and number on the back. Made-to-order, 4-6 week lead time.",
-      "price_label": "From",
+      "description": "Personalised long-sleeve race jersey from Ace Race. Custom name and number on the back. Made-to-order, 4-6 week lead time.",
+      "price_label": "Each",
       "category": "Race Kit",
-      "options": [
-        "Kids 6-14",
-        "Adult S-3XL",
-        "Custom Name",
-        "Custom #"
-      ]
+      "options": []
     },
     {
-      "badge": "Coming Soon",
-      "placeholder_icon": "🧢",
-      "placeholder_label": "Trucker Cap",
-      "price": "$30",
-      "available": false,
-      "name": "Eagles Trucker Cap",
-      "badge_style": "coming",
-      "buy_url": "",
-      "image": "",
-      "buy_label": "Notify Me",
-      "description": "Snapback trucker cap with embroidered Eagles logo on the front. Classic black with mesh back panels — coming soon.",
-      "price_label": "Estimated",
-      "category": "Headwear",
-      "options": [
-        "One Size",
-        "Adjustable"
-      ]
-    },
-    {
-      "badge": "Coming Soon",
-      "placeholder_icon": "🎿",
-      "placeholder_label": "Beanie",
-      "price": "$25",
-      "available": false,
-      "name": "Eagles Beanie",
-      "badge_style": "coming",
-      "buy_url": "",
-      "image": "",
-      "buy_label": "Notify Me",
-      "description": "Warm acrylic beanie with embroidered logo cuff. Perfect for cold winter gate nights at the track.",
-      "price_label": "Estimated",
-      "category": "Headwear",
-      "options": [
-        "One Size"
-      ]
-    },
-    {
-      "badge": "Coming Soon",
-      "placeholder_icon": "🧥",
-      "placeholder_label": "Race Jacket",
-      "price": "$85",
-      "available": false,
-      "name": "Eagles Race Jacket",
-      "badge_style": "coming",
-      "buy_url": "",
-      "image": "",
-      "buy_label": "Notify Me",
-      "description": "Lightweight track jacket with full Eagles branding. Water-resistant, perfect for race days and warm-ups.",
-      "price_label": "Estimated",
-      "category": "Outerwear",
-      "options": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL",
-        "2XL"
-      ]
+      "badge": "Race Wear",
+      "price": "62",
+      "available": true,
+      "name": "Eastfield Eagles Race Jersey - Coloured",
+      "badge_style": "signature",
+      "buy_url": "https://square.link/u/Uew8v3Nl",
+      "image": "/uploads/ee-jersey-purple.png",
+      "buy_label": "Buy",
+      "description": "Personalised long-sleeve race jersey from Ace Race. Custom name and number on the back. Made-to-order, 4-6 week lead time.",
+      "price_label": "Each",
+      "category": "Race Kit"
     }
   ],
   "footer_note": "All proceeds support track maintenance and club programs"
